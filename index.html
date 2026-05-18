@@ -3,217 +3,183 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>🌴 Jungle Adventure — CLOZE Reading</title>
+<title>🌴 Jungle Adventure — CLOZE Reading v2</title>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet"/>
 <style>
-  :root {
-    --bg: #0a1a0d;
-    --panel: #112215;
-    --panel2: #182e1c;
-    --accent: #5ddb6f;
-    --accent2: #3ab34a;
-    --red: #ff5252;
-    --red2: #cc2222;
-    --yellow: #ffd84f;
-    --gold2: #e0b800;
-    --orange: #ff8c2a;
-    --teal: #2affcc;
-    --text: #e0f5e4;
-    --muted: #6a9e72;
-    --border: #1e3e24;
-    --correct: #3ddc5a;
-    --wrong: #ff5252;
-  }
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { background: var(--bg); color: var(--text); font-family: 'Nunito', sans-serif; min-height: 100vh; overflow-x: hidden; }
-
-  /* jungle bg */
-  body::before {
-    content: '';
-    position: fixed; inset: 0;
-    background:
-      radial-gradient(ellipse 70% 50% at 10% 90%, rgba(93,219,111,.05) 0%, transparent 60%),
-      radial-gradient(ellipse 60% 40% at 90% 10%, rgba(45,255,180,.04) 0%, transparent 60%),
-      radial-gradient(ellipse 50% 60% at 50% 50%, rgba(255,216,79,.03) 0%, transparent 60%);
-    pointer-events: none; z-index: 0;
-  }
-  body::after {
-    content: '🌿 🦜 🌿 🐍 🌿 🦋 🌿 🌺';
-    position: fixed; top: 0; left: 0; right: 0;
-    font-size: .75rem; color: rgba(93,219,111,.07);
-    letter-spacing: 2.5rem; pointer-events: none; z-index: 0;
-    padding: 10px; line-height: 4; overflow: hidden; height: 100vh;
-  }
-
-  .wrapper { position: relative; z-index: 1; max-width: 900px; margin: 0 auto; padding: 16px 16px 60px; }
-
-  /* HEADER */
-  .site-header { text-align: center; padding: 22px 0 14px; margin-bottom: 20px; border-bottom: 2px dashed var(--border); }
-  .site-header h1 { font-family: 'Fredoka One', cursive; font-size: clamp(1.8rem, 5.5vw, 3rem); color: var(--accent); text-shadow: 0 0 20px rgba(93,219,111,.4), 3px 3px 0 rgba(0,0,0,.5); }
-  .site-header h1 span { color: var(--yellow); }
-  .site-header p { color: var(--muted); font-size: .88rem; margin-top: 5px; font-weight: 600; }
-
-  /* BUTTONS */
-  .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 11px 24px; border: none; border-radius: 50px; font-family: 'Nunito', sans-serif; font-size: .9rem; font-weight: 800; cursor: pointer; transition: all .18s; }
-  .btn-green { background: linear-gradient(135deg, var(--accent), var(--accent2)); color: #051008; box-shadow: 0 4px 0 #1a6e28, 0 6px 20px rgba(93,219,111,.25); }
-  .btn-green:hover { transform: translateY(-2px); box-shadow: 0 6px 0 #1a6e28, 0 8px 28px rgba(93,219,111,.35); }
-  .btn-green:active { transform: translateY(2px); box-shadow: 0 2px 0 #1a6e28; }
-  .btn-yellow { background: linear-gradient(135deg, var(--yellow), var(--gold2)); color: #1a1000; box-shadow: 0 4px 0 #8a6e00; font-weight: 800; }
-  .btn-yellow:hover { transform: translateY(-2px); }
-  .btn-ghost { background: transparent; border: 2px solid var(--border); color: var(--muted); font-size: .82rem; padding: 8px 18px; }
-  .btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
-
-  /* CARD */
-  .card { background: var(--panel); border: 2px solid var(--border); border-radius: 20px; padding: 28px; box-shadow: 0 8px 40px rgba(0,0,0,.5); }
+  :root{--bg:#0a1a0d;--panel:#112215;--panel2:#182e1c;--accent:#5ddb6f;--accent2:#3ab34a;--red:#ff5252;--red2:#cc2222;--yellow:#ffd84f;--gold2:#e0b800;--orange:#ff8c2a;--teal:#2affcc;--text:#e0f5e4;--muted:#6a9e72;--border:#1e3e24;--correct:#3ddc5a;--wrong:#ff5252;--fs:1rem;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--bg);color:var(--text);font-family:'Nunito',sans-serif;min-height:100vh;overflow-x:hidden;font-size:var(--fs);}
+  body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellipse 70% 50% at 10% 90%,rgba(93,219,111,.05) 0%,transparent 60%),radial-gradient(ellipse 60% 40% at 90% 10%,rgba(45,255,180,.04) 0%,transparent 60%);pointer-events:none;z-index:0;}
+  body::after{content:'🌿 🦜 🌿 🐍 🌿 🦋 🌿 🌺';position:fixed;top:0;left:0;right:0;font-size:.75rem;color:rgba(93,219,111,.07);letter-spacing:2.5rem;pointer-events:none;z-index:0;padding:10px;line-height:4;overflow:hidden;height:100vh;}
+  .wrapper{position:relative;z-index:1;max-width:900px;margin:0 auto;padding:16px 16px 60px;}
+  .site-header{text-align:center;padding:22px 0 14px;margin-bottom:20px;border-bottom:2px dashed var(--border);}
+  .site-header h1{font-family:'Fredoka One',cursive;font-size:clamp(1.8rem,5.5vw,3rem);color:var(--accent);text-shadow:0 0 20px rgba(93,219,111,.4),3px 3px 0 rgba(0,0,0,.5);}
+  .site-header h1 span{color:var(--yellow);}
+  .site-header p{color:var(--muted);font-size:.88rem;margin-top:5px;font-weight:600;}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:11px 24px;border:none;border-radius:50px;font-family:'Nunito',sans-serif;font-size:.9rem;font-weight:800;cursor:pointer;transition:all .18s;}
+  .btn-green{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#051008;box-shadow:0 4px 0 #1a6e28,0 6px 20px rgba(93,219,111,.25);}
+  .btn-green:hover:not(:disabled){transform:translateY(-2px);box-shadow:0 6px 0 #1a6e28,0 8px 28px rgba(93,219,111,.35);}
+  .btn-green:active:not(:disabled){transform:translateY(2px);box-shadow:0 2px 0 #1a6e28;}
+  .btn-green:disabled{opacity:.4;cursor:not-allowed;}
+  .btn-ghost{background:transparent;border:2px solid var(--border);color:var(--muted);font-size:.82rem;padding:8px 18px;}
+  .btn-ghost:hover{border-color:var(--accent);color:var(--accent);}
+  .btn-yellow{background:linear-gradient(135deg,var(--yellow),var(--gold2));color:#1a1000;box-shadow:0 4px 0 #8a6e00;font-weight:800;}
+  .btn-yellow:hover{transform:translateY(-2px);}
+  .card{background:var(--panel);border:2px solid var(--border);border-radius:20px;padding:28px;box-shadow:0 8px 40px rgba(0,0,0,.5);}
+  .hidden{display:none!important;}
+  .divider{border:none;border-top:2px dashed var(--border);margin:18px 0;}
+  .mt12{margin-top:12px;}
+  .nav-bar{display:flex;align-items:center;gap:10px;margin-bottom:18px;flex-wrap:wrap;}
+  .nav-bar h2{font-family:'Fredoka One',cursive;font-size:1.2rem;color:var(--accent);flex:1;}
+  .score-pill{background:var(--panel2);border:2px solid var(--border);border-radius:50px;padding:6px 16px;font-weight:800;font-size:.82rem;color:var(--yellow);}
+  .timer-pill{background:var(--panel2);border:2px solid var(--border);border-radius:50px;padding:6px 14px;font-weight:800;font-size:.82rem;color:var(--teal);}
 
   /* ENTRY */
-  #screen-entry { display: flex; flex-direction: column; align-items: center; gap: 16px; padding: 20px 0; }
-  .entry-card { width: 100%; max-width: 440px; text-align: center; }
-  .entry-card h2 { font-family: 'Fredoka One', cursive; font-size: 1.6rem; color: var(--yellow); margin-bottom: 6px; }
-  .entry-card p { color: var(--muted); font-size: .88rem; margin-bottom: 20px; font-weight: 600; }
-  .jungle-parade { font-size: 2rem; letter-spacing: .5rem; margin-bottom: 12px; animation: sway 3s ease-in-out infinite; }
-  @keyframes sway { 0%,100% { letter-spacing: .5rem; } 50% { letter-spacing: .7rem; } }
-  .field-label { font-size: .73rem; font-weight: 800; color: var(--muted); text-align: left; margin-bottom: 5px; letter-spacing: .08em; text-transform: uppercase; }
-  .text-input, select.text-input {
-    width: 100%; padding: 12px 16px;
-    background: var(--panel2); border: 2px solid var(--border); border-radius: 12px;
-    color: var(--text); font-family: 'Nunito', sans-serif; font-size: 1rem; font-weight: 700;
-    outline: none; transition: border-color .2s; appearance: none; -webkit-appearance: none;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%236a9e72' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
-    background-repeat: no-repeat; background-position: right 14px center; cursor: pointer;
-  }
-  .text-input:focus, select.text-input:focus { border-color: var(--accent); }
-  select.text-input option { background: #182e1c; color: #e0f5e4; }
-  input.text-input { background-image: none; cursor: text; }
-  .divider { border: none; border-top: 2px dashed var(--border); margin: 18px 0; }
-  .mt12 { margin-top: 12px; }
-  .hidden { display: none !important; }
-
-  /* NAV */
-  .nav-bar { display: flex; align-items: center; gap: 10px; margin-bottom: 18px; flex-wrap: wrap; }
-  .nav-bar h2 { font-family: 'Fredoka One', cursive; font-size: 1.2rem; color: var(--accent); flex: 1; }
-  .score-pill { background: var(--panel2); border: 2px solid var(--border); border-radius: 50px; padding: 6px 16px; font-weight: 800; font-size: .82rem; color: var(--yellow); }
+  #screen-entry{display:flex;flex-direction:column;align-items:center;gap:16px;padding:20px 0;}
+  .entry-card{width:100%;max-width:440px;text-align:center;margin:0 auto;}
+  .entry-card h2{font-family:'Fredoka One',cursive;font-size:1.6rem;color:var(--yellow);margin-bottom:6px;}
+  .entry-card p{color:var(--muted);font-size:.88rem;margin-bottom:20px;font-weight:600;}
+  .jungle-parade{font-size:2rem;letter-spacing:.5rem;margin-bottom:12px;animation:sway 3s ease-in-out infinite;}
+  @keyframes sway{0%,100%{letter-spacing:.5rem;}50%{letter-spacing:.7rem;}}
+  .field-label{font-size:.73rem;font-weight:800;color:var(--muted);text-align:left;margin-bottom:5px;letter-spacing:.08em;text-transform:uppercase;}
+  .text-input,select.text-input{width:100%;padding:12px 16px;background:var(--panel2);border:2px solid var(--border);border-radius:12px;color:var(--text);font-family:'Nunito',sans-serif;font-size:1rem;font-weight:700;outline:none;transition:border-color .2s;appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%236a9e72' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;cursor:pointer;}
+  .text-input:focus,select.text-input:focus{border-color:var(--accent);}
+  select.text-input option{background:#182e1c;color:#e0f5e4;}
+  input.text-input{background-image:none;cursor:text;}
+  .locked-banner{background:rgba(255,82,82,.1);border:2px solid var(--red2);border-radius:14px;padding:20px;text-align:center;width:100%;max-width:440px;}
+  .locked-banner h3{font-family:'Fredoka One',cursive;color:var(--red);font-size:1.2rem;margin-bottom:8px;}
+  .locked-banner p{color:var(--muted);font-size:.88rem;font-weight:600;}
 
   /* PASSAGE */
-  #screen-passage { display: none; }
-  .passage-wrap { background: var(--panel); border: 2px solid var(--border); border-radius: 20px; overflow: hidden; box-shadow: 0 10px 50px rgba(0,0,0,.5); }
-  .passage-header { padding: 18px 24px 14px; background: var(--panel2); border-bottom: 2px dashed var(--border); }
-  .passage-title { font-family: 'Fredoka One', cursive; font-size: 1.3rem; color: var(--yellow); margin-bottom: 2px; }
-  .passage-sub { font-size: .78rem; color: var(--muted); font-weight: 700; }
-  .passage-body { padding: 20px 24px; font-size: .97rem; line-height: 1.85; color: var(--text); font-weight: 600; }
-  .passage-body p { margin-bottom: 10px; }
+  #screen-passage{display:none;}
+  .passage-wrap{background:var(--panel);border:2px solid var(--border);border-radius:20px;overflow:hidden;box-shadow:0 10px 50px rgba(0,0,0,.5);}
+  .passage-header{padding:18px 24px 14px;background:var(--panel2);border-bottom:2px dashed var(--border);}
+  .passage-title{font-family:'Fredoka One',cursive;font-size:1.3rem;color:var(--yellow);margin-bottom:2px;}
+  .passage-sub{font-size:.78rem;color:var(--muted);font-weight:700;}
 
-  /* Per-paragraph read aloud */
-  .para-wrap { margin-bottom: 18px; padding: 12px 14px; border-radius: 12px; border: 2px solid transparent; transition: all .3s; }
-  .para-wrap.reading { background: rgba(255,216,79,.07); border-color: rgba(255,216,79,.3); }
-  .read-btn {
-    display: inline-flex; align-items: center; gap: 6px;
-    margin-top: 6px; padding: 5px 14px;
-    background: transparent; border: 2px solid var(--border);
-    border-radius: 50px; color: var(--muted);
-    font-family: 'Nunito', sans-serif; font-size: .76rem; font-weight: 800;
-    cursor: pointer; transition: all .2s;
-  }
-  .read-btn:hover { border-color: var(--accent); color: var(--accent); }
-  .read-btn.active { background: rgba(255,216,79,.12); border-color: var(--yellow); color: var(--yellow); }
-  .read-btn.active::before { content: '⏹ '; }
-  .passage-footer { padding: 12px 24px 20px; display: flex; justify-content: center; }
+  /* Reading instructions banner */
+  .reading-instructions{padding:14px 20px;background:rgba(255,216,79,.07);border-bottom:2px dashed rgba(255,216,79,.25);}
+  .reading-instructions-title{font-family:'Fredoka One',cursive;font-size:calc(var(--fs) * 0.95);color:var(--yellow);margin-bottom:8px;}
+  .reading-instructions-list{display:flex;flex-direction:column;gap:6px;}
+  .reading-instruction-item{display:flex;align-items:flex-start;gap:10px;font-size:var(--fs);font-weight:700;color:var(--muted);line-height:1.4;}
+  .reading-instruction-item span.icon{font-size:calc(var(--fs) * 1.05);flex-shrink:0;margin-top:1px;}
+
+  /* Passage timer */
+  .passage-timer-wrap{padding:12px 24px;background:rgba(0,0,0,.2);border-bottom:2px dashed var(--border);}
+  .passage-timer-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;}
+  .passage-timer-label{font-size:.72rem;font-weight:800;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;}
+  .passage-timer-count{font-size:.82rem;font-weight:800;color:var(--yellow);}
+  .passage-timer-track{height:10px;background:#0a130c;border-radius:5px;overflow:hidden;border:1px solid var(--border);}
+  .passage-timer-fill{height:100%;background:linear-gradient(90deg,var(--accent2),var(--accent));border-radius:5px;transition:width 1s linear;width:0%;}
+
+  .passage-body{padding:20px 24px;font-size:var(--fs);line-height:1.85;color:var(--text);font-weight:600;}
+  .para-wrap{margin-bottom:18px;padding:12px 14px;border-radius:12px;border:2px solid transparent;transition:all .3s;}
+  .para-wrap.reading{background:rgba(255,216,79,.07);border-color:rgba(255,216,79,.3);}
+  .para-wrap p{margin-bottom:8px;}
+  .read-btn{display:inline-flex;align-items:center;gap:6px;margin-top:6px;padding:5px 14px;background:transparent;border:2px solid var(--border);border-radius:50px;color:var(--muted);font-family:'Nunito',sans-serif;font-size:.76rem;font-weight:800;cursor:pointer;transition:all .2s;}
+  .read-btn:hover{border-color:var(--accent);color:var(--accent);}
+  .read-btn.active{background:rgba(255,216,79,.12);border-color:var(--yellow);color:var(--yellow);}
+  /* Word-by-word highlight */
+  .word-span{ display:inline; transition:background .1s, color .1s; border-radius:3px; padding:0 1px; }
+  .word-span.highlight{ background:var(--yellow); color:#1a1000; border-radius:4px; padding:0 3px; }
+  .passage-footer{padding:14px 24px 20px;display:flex;flex-direction:column;align-items:center;gap:10px;}
+  .passage-footer-note{font-size:calc(var(--fs) * 0.82);color:var(--muted);font-weight:700;font-style:italic;text-align:center;}
 
   /* QUIZ */
-  #screen-quiz { display: none; }
-  .quiz-wrap { background: var(--panel); border: 2px solid var(--border); border-radius: 20px; overflow: hidden; box-shadow: 0 10px 50px rgba(0,0,0,.5); }
-  .quiz-header { padding: 16px 24px 14px; background: var(--panel2); border-bottom: 2px dashed var(--border); display: flex; align-items: center; gap: 14px; }
-  .quiz-icon { font-size: 2.2rem; }
-  .quiz-title { font-family: 'Fredoka One', cursive; font-size: 1.1rem; color: var(--accent); }
-  .quiz-sub { font-size: .75rem; color: var(--muted); font-weight: 700; }
+  #screen-quiz{display:none;}
+  .quiz-wrap{background:var(--panel);border:2px solid var(--border);border-radius:20px;overflow:hidden;box-shadow:0 10px 50px rgba(0,0,0,.5);}
+  .quiz-header{padding:16px 24px 14px;background:var(--panel2);border-bottom:2px dashed var(--border);display:flex;align-items:center;gap:14px;}
+  .quiz-icon{font-size:2.2rem;}
+  .quiz-title{font-family:'Fredoka One',cursive;font-size:1.1rem;color:var(--accent);}
+  .quiz-sub{font-size:.75rem;color:var(--muted);font-weight:700;}
+  .progress-row{padding:10px 24px;background:rgba(0,0,0,.15);border-bottom:2px dashed var(--border);display:flex;align-items:center;gap:12px;}
+  .progress-label{font-size:.7rem;font-weight:800;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;white-space:nowrap;}
+  .progress-track{flex:1;height:10px;background:#0a130c;border-radius:5px;overflow:hidden;border:1px solid var(--border);}
+  .progress-fill{height:100%;background:linear-gradient(90deg,var(--accent2),var(--accent));border-radius:5px;transition:width .5s ease;}
+  .progress-num{font-size:.75rem;font-weight:800;color:var(--yellow);min-width:56px;text-align:right;}
+  .q-zone{padding:22px 24px 14px;}
+  .q-counter{font-size:.7rem;font-weight:800;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;margin-bottom:10px;}
+  .q-sentence{font-size:var(--fs);font-weight:700;line-height:1.7;color:var(--text);margin-bottom:20px;background:var(--panel2);border:2px solid var(--border);border-radius:12px;padding:16px 18px;}
+  .blank{color:var(--yellow);font-style:italic;letter-spacing:.04em;}
+  .choices{display:flex;flex-direction:column;gap:10px;}
+  .choice-btn{padding:12px 18px;background:var(--panel2);border:2px solid var(--border);border-radius:12px;color:var(--text);font-family:'Nunito',sans-serif;font-size:var(--fs);font-weight:700;text-align:left;cursor:pointer;transition:all .15s;display:flex;align-items:center;gap:12px;}
+  .choice-btn:hover:not(:disabled){border-color:var(--accent);background:rgba(93,219,111,.07);transform:translateX(3px);}
+  .choice-btn:disabled{cursor:not-allowed;}
+  .choice-btn.correct{border-color:var(--correct);background:rgba(61,220,90,.12);color:var(--correct);}
+  .choice-btn.wrong{border-color:var(--wrong);background:rgba(255,82,82,.1);color:var(--wrong);}
+  .choice-btn.selected{border-color:var(--teal);background:rgba(42,255,204,.1);color:var(--teal);transform:translateX(3px);}
+  .btn-confirm{background:linear-gradient(135deg,var(--teal),#1ab88a);color:#051008;box-shadow:0 4px 0 #0a7a5a;font-weight:800;}
+  .btn-confirm:hover{transform:translateY(-2px);box-shadow:0 6px 0 #0a7a5a;}
+  .choice-letter{font-weight:800;color:var(--muted);min-width:22px;font-size:.82rem;}
+  .q-msg{margin:0 24px 14px;padding:11px 16px;border-radius:12px;font-size:.88rem;font-weight:700;min-height:42px;line-height:1.5;transition:all .25s;}
+  .msg-neutral{background:var(--panel2);border:2px solid var(--border);color:var(--muted);}
+  .msg-correct{background:rgba(61,220,90,.1);border:2px solid var(--accent2);color:var(--correct);}
+  .msg-wrong{background:rgba(255,82,82,.1);border:2px solid var(--red2);color:var(--wrong);}
+  .q-footer{padding:10px 24px 20px;display:flex;gap:10px;flex-wrap:wrap;align-items:center;}
+  .next-countdown{display:inline-flex;align-items:center;gap:8px;padding:11px 24px;border-radius:50px;font-family:'Nunito',sans-serif;font-size:.9rem;font-weight:800;background:var(--panel2);border:2px solid var(--border);color:var(--muted);}
+  /* Tab switch warning */
+  .tab-warning{position:fixed;top:16px;left:50%;transform:translateX(-50%);background:rgba(255,82,82,.95);color:#fff;padding:10px 24px;border-radius:50px;font-weight:800;font-size:.88rem;z-index:200;animation:slideDown .3s ease;box-shadow:0 4px 20px rgba(255,82,82,.4);}
+  @keyframes slideDown{from{transform:translateX(-50%) translateY(-20px);opacity:0;}to{transform:translateX(-50%) translateY(0);opacity:1;}}
+  /* Font size toggle */
+  .fs-toggle{display:flex;align-items:center;gap:6px;background:var(--panel2);border:2px solid var(--border);border-radius:50px;padding:4px 10px;}
+  .fs-btn{background:none;border:none;color:var(--muted);font-family:'Nunito',sans-serif;font-weight:800;cursor:pointer;padding:2px 6px;border-radius:20px;transition:all .15s;}
+  .fs-btn:hover,.fs-btn.active{color:var(--accent);background:rgba(93,219,111,.1);}
+  /* Missed Q review */
+  .missed-review{padding:14px 20px 16px;border-top:2px dashed var(--border);margin-top:4px;}
+  .missed-review h3{font-family:'Fredoka One',cursive;font-size:.95rem;color:var(--yellow);margin-bottom:10px;}
+  .missed-item{background:var(--panel2);border:2px solid var(--border);border-radius:12px;padding:11px 14px;margin-bottom:8px;}
+  .missed-item-q{font-size:.86rem;font-weight:700;color:var(--text);margin-bottom:5px;}
+  .missed-item-a{font-size:.8rem;font-weight:800;color:var(--correct);}
+  .missed-item-wrong{font-size:.76rem;font-weight:700;color:var(--wrong);margin-bottom:3px;}
+  .read-countdown{display:inline-flex;align-items:center;gap:8px;padding:9px 18px;border-radius:50px;font-family:'Nunito',sans-serif;font-size:.82rem;font-weight:800;background:rgba(255,216,79,.08);border:2px solid rgba(255,216,79,.3);color:var(--yellow);}
+  .choice-btn.locked{opacity:.45;cursor:not-allowed;pointer-events:none;}
 
-  /* Progress bar */
-  .progress-row { padding: 10px 24px; background: rgba(0,0,0,.15); border-bottom: 2px dashed var(--border); display: flex; align-items: center; gap: 12px; }
-  .progress-label { font-size: .7rem; font-weight: 800; color: var(--muted); text-transform: uppercase; letter-spacing: .06em; white-space: nowrap; }
-  .progress-track { flex: 1; height: 10px; background: #0a130c; border-radius: 5px; overflow: hidden; border: 1px solid var(--border); }
-  .progress-fill { height: 100%; background: linear-gradient(90deg, var(--accent2), var(--accent)); border-radius: 5px; transition: width .5s ease; }
-  .progress-num { font-size: .75rem; font-weight: 800; color: var(--yellow); min-width: 48px; text-align: right; }
-
-  /* Question area */
-  .q-zone { padding: 22px 24px 14px; }
-  .q-counter { font-size: .7rem; font-weight: 800; color: var(--muted); letter-spacing: .08em; text-transform: uppercase; margin-bottom: 10px; }
-  .q-sentence {
-    font-size: 1.05rem; font-weight: 700; line-height: 1.7;
-    color: var(--text); margin-bottom: 20px;
-    background: var(--panel2); border: 2px solid var(--border);
-    border-radius: 12px; padding: 16px 18px;
-  }
-  .blank { color: var(--yellow); font-style: italic; letter-spacing: .04em; }
-  .choices { display: flex; flex-direction: column; gap: 10px; }
-  .choice-btn {
-    padding: 12px 18px; background: var(--panel2); border: 2px solid var(--border);
-    border-radius: 12px; color: var(--text); font-family: 'Nunito', sans-serif;
-    font-size: .95rem; font-weight: 700; text-align: left; cursor: pointer;
-    transition: all .15s; display: flex; align-items: center; gap: 12px;
-  }
-  .choice-btn:hover:not(:disabled) { border-color: var(--accent); background: rgba(93,219,111,.07); transform: translateX(3px); }
-  .choice-btn:disabled { cursor: not-allowed; }
-  .choice-btn.correct { border-color: var(--correct); background: rgba(61,220,90,.12); color: var(--correct); }
-  .choice-btn.wrong { border-color: var(--wrong); background: rgba(255,82,82,.1); color: var(--wrong); }
-  .choice-letter { font-weight: 800; color: var(--muted); min-width: 22px; font-size: .82rem; }
-
-  .q-msg { margin: 0 24px 14px; padding: 11px 16px; border-radius: 12px; font-size: .88rem; font-weight: 700; min-height: 42px; line-height: 1.5; transition: all .25s; }
-  .msg-neutral { background: var(--panel2); border: 2px solid var(--border); color: var(--muted); }
-  .msg-correct { background: rgba(61,220,90,.1); border: 2px solid var(--accent2); color: var(--correct); }
-  .msg-wrong { background: rgba(255,82,82,.1); border: 2px solid var(--red2); color: var(--wrong); }
-  .q-footer { padding: 10px 24px 20px; display: flex; gap: 10px; flex-wrap: wrap; }
+  /* INSTRUCTIONS — ✅ FIX: starts hidden, shown by showScreen() */
+  #screen-instructions{display:none;}
 
   /* RESULTS */
-  #screen-results { display: none; }
-  .results-card { text-align: center; }
-  .results-icon { font-size: 4rem; margin-bottom: 12px; }
-  .results-title { font-family: 'Fredoka One', cursive; font-size: 2rem; color: var(--yellow); margin-bottom: 8px; }
-  .results-score { font-size: 1.1rem; font-weight: 700; color: var(--muted); margin-bottom: 20px; }
-  .results-score strong { color: var(--accent); font-size: 1.5rem; }
-  .results-breakdown { background: var(--panel2); border: 2px solid var(--border); border-radius: 14px; padding: 16px 20px; margin-bottom: 20px; text-align: left; }
-  .breakdown-row { display: flex; justify-content: space-between; align-items: center; padding: 6px 0; border-bottom: 1px solid rgba(30,62,36,.6); font-size: .88rem; font-weight: 700; }
-  .breakdown-row:last-child { border-bottom: none; }
-  .breakdown-row.correct-row { color: var(--correct); }
-  .breakdown-row.wrong-row { color: var(--wrong); }
+  #screen-results{display:none;}
+  .results-card{text-align:center;}
+  .results-icon{font-size:4rem;margin-bottom:12px;}
+  .results-title{font-family:'Fredoka One',cursive;font-size:2rem;color:var(--yellow);margin-bottom:8px;}
+  .results-score{font-size:1.1rem;font-weight:700;color:var(--muted);margin-bottom:20px;}
+  .results-score strong{color:var(--accent);font-size:1.5rem;}
+  .results-breakdown{background:var(--panel2);border:2px solid var(--border);border-radius:14px;padding:16px 20px;margin-bottom:20px;text-align:left;max-height:320px;overflow-y:auto;}
+  .breakdown-row{display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-bottom:1px solid rgba(30,62,36,.6);font-size:.85rem;font-weight:700;}
+  .breakdown-row:last-child{border-bottom:none;}
+  .correct-row{color:var(--correct);}
+  .wrong-row{color:var(--wrong);}
 
   /* LEADERBOARD */
-  #screen-leaderboard { display: none; }
-  .lb-title { font-family: 'Fredoka One', cursive; font-size: 1.4rem; color: var(--yellow); }
-  .lb-table { width: 100%; border-collapse: collapse; }
-  .lb-table th { font-size: .7rem; font-weight: 800; color: var(--muted); text-transform: uppercase; letter-spacing: .08em; padding: 8px 14px; text-align: left; border-bottom: 2px solid var(--border); }
-  .lb-table td { padding: 11px 14px; border-bottom: 1px solid rgba(30,62,36,.5); font-weight: 700; }
-  .lb-table tr:first-child td { color: var(--yellow); }
-  .lb-score { color: var(--accent); }
+  #screen-leaderboard{display:none;}
+  .lb-title{font-family:'Fredoka One',cursive;font-size:1.4rem;color:var(--yellow);}
+  .lb-table{width:100%;border-collapse:collapse;}
+  .lb-table th{font-size:.7rem;font-weight:800;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;padding:8px 14px;text-align:left;border-bottom:2px solid var(--border);}
+  .lb-table td{padding:11px 14px;border-bottom:1px solid rgba(30,62,36,.5);font-weight:700;}
+  .lb-table tr:first-child td{color:var(--yellow);}
+  .lb-score{color:var(--accent);}
 
   /* OVERLAYS */
-  .overlay { position: fixed; inset: 0; background: rgba(0,0,0,.88); display: none; align-items: center; justify-content: center; z-index: 100; backdrop-filter: blur(6px); }
-  .overlay.show { display: flex; }
-  .overlay-card { background: var(--panel); border: 2px solid var(--border); border-radius: 24px; padding: 34px 36px 28px; max-width: 440px; width: 90%; text-align: center; box-shadow: 0 20px 60px rgba(0,0,0,.8); animation: popIn .28s cubic-bezier(.34,1.56,.64,1); }
-  @keyframes popIn { from { transform: scale(.7); opacity: 0; } to { transform: scale(1); opacity: 1; } }
-  .overlay-icon { font-size: 4rem; margin-bottom: 10px; }
-  .overlay-title { font-family: 'Fredoka One', cursive; font-size: 1.6rem; margin-bottom: 8px; }
-  .overlay-title.green { color: var(--accent); }
-  .overlay-title.yellow { color: var(--yellow); }
-  .overlay-body { color: var(--muted); font-size: .9rem; font-weight: 600; margin-bottom: 22px; line-height: 1.6; }
-  .overlay-btns { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
-  .pin-input { width: 100%; padding: 12px; background: var(--panel2); border: 2px solid var(--border); border-radius: 12px; color: var(--text); font-family: 'Nunito', sans-serif; font-size: 1.1rem; font-weight: 800; text-align: center; letter-spacing: .3em; outline: none; margin: 12px 0 6px; }
-  .pin-input:focus { border-color: var(--accent); }
-
-  @media (max-width: 520px) {
-    .q-zone { padding: 14px 16px 10px; }
-    .q-msg { margin: 0 16px 12px; }
-    .q-footer { padding: 8px 16px 16px; }
-    .passage-body { padding: 16px; }
-    .card { padding: 20px 16px; }
-  }
+  .overlay{position:fixed;inset:0;background:rgba(0,0,0,.88);display:none;align-items:center;justify-content:center;z-index:100;backdrop-filter:blur(6px);}
+  .overlay.show{display:flex;}
+  .overlay-card{background:var(--panel);border:2px solid var(--border);border-radius:24px;padding:34px 36px 28px;max-width:440px;width:90%;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,.8);animation:popIn .28s cubic-bezier(.34,1.56,.64,1);}
+  @keyframes popIn{from{transform:scale(.7);opacity:0;}to{transform:scale(1);opacity:1;}}
+  .overlay-icon{font-size:4rem;margin-bottom:10px;}
+  .overlay-title{font-family:'Fredoka One',cursive;font-size:1.6rem;margin-bottom:8px;}
+  .overlay-title.green{color:var(--accent);}
+  .overlay-title.yellow{color:var(--yellow);}
+  .overlay-body{color:var(--muted);font-size:.9rem;font-weight:600;margin-bottom:22px;line-height:1.6;}
+  .overlay-btns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;}
+  .pin-input{width:100%;padding:12px;background:var(--panel2);border:2px solid var(--border);border-radius:12px;color:var(--text);font-family:'Nunito',sans-serif;font-size:1.1rem;font-weight:800;text-align:center;letter-spacing:.3em;outline:none;margin:12px 0 6px;}
+  .pin-input:focus{border-color:var(--accent);}
+  @media(max-width:520px){.q-zone{padding:14px 16px 10px;}.q-msg{margin:0 16px 12px;}.q-footer{padding:8px 16px 16px;}.passage-body{padding:16px;}.card{padding:20px 16px;}.reading-instructions{padding:12px 16px;}}
 </style>
 </head>
 <body>
 <div class="wrapper">
-
   <div class="site-header">
     <h1>🌴 Jungle <span>Adventure</span>!</h1>
-    <p>CLOZE Reading Challenge — 4th Grade &nbsp;|&nbsp; Read the passage, then fill in the blanks!</p>
+    <p>CLOZE Reading Challenge v2 — 4th Grade &nbsp;|&nbsp; Read carefully, then fill in the blanks!</p>
   </div>
 
   <!-- ═══ ENTRY ═══ -->
@@ -221,7 +187,7 @@
     <div class="card entry-card">
       <div class="jungle-parade">🌴 🦜 🐆 🌺 🦋</div>
       <h2>Into the Jungle!</h2>
-      <p>Read the passage carefully, then answer the CLOZE questions. Pick the word that best fits each blank.</p>
+      <p>Read the full passage carefully — you must spend at least 3 minutes reading before the questions unlock!</p>
       <div class="field-label">Select Your Name</div>
       <select class="text-input" id="nameSelect" onchange="onNameSelect()">
         <option value="">— Choose your name —</option>
@@ -236,13 +202,63 @@
       <hr class="divider"/>
       <button class="btn btn-ghost" onclick="showLeaderboard()">🏆 View Leaderboard</button>
     </div>
+    <div id="lockedBanner" class="hidden">
+      <div class="locked-banner">
+        <h3>🔒 Already Completed!</h3>
+        <p id="lockedMsg">You already finished Jungle Adventure. Ask Mr. O for a PIN if you need to replay.</p>
+        <div style="margin-top:14px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap;">
+          <button class="btn btn-ghost" onclick="showLeaderboard()">🏆 See Leaderboard</button>
+          <button class="btn btn-ghost" onclick="promptPin('unlock')">🔐 Enter PIN</button>
+        </div>
+      </div>
+    </div>
     <div id="resumeSection" class="hidden">
-      <div class="card entry-card" style="max-width:440px;">
+      <div class="card entry-card">
         <h2 style="font-size:1.1rem;color:var(--muted);">Resume Where You Left Off?</h2>
         <div id="resumeInfo" style="color:var(--muted);font-size:.85rem;font-weight:600;margin-bottom:14px;"></div>
         <div style="display:flex;gap:10px;justify-content:center;">
           <button class="btn btn-green" onclick="resumeGame()">🌿 Resume</button>
-          <button class="btn btn-ghost" onclick="clearResume()">Start Fresh</button>
+          <button class="btn btn-ghost" onclick="promptPin('startfresh')">🔐 Ask Mr. O to Restart</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ INSTRUCTIONS ═══ -->
+  <div id="screen-instructions">
+    <div class="nav-bar">
+      <h2>📋 Before You Begin</h2>
+      <div class="fs-toggle"><button class="fs-btn" onclick="setFontSize('normal')">A</button><button class="fs-btn" onclick="setFontSize('large')">A+</button></div>
+    </div>
+    <div class="passage-wrap">
+      <div class="passage-header">
+        <div class="passage-title">📋 How This Activity Works</div>
+        <div class="passage-sub">Read these instructions carefully before you start</div>
+      </div>
+      <!-- Instructions timer bar -->
+      <div class="passage-timer-wrap">
+        <div class="passage-timer-top">
+          <div class="passage-timer-label" id="instrTimerLabel">📋 Read the instructions — story unlocks in 1:30</div>
+          <div class="passage-timer-count" id="instrTimerCount">1:30 remaining</div>
+        </div>
+        <div class="passage-timer-track"><div class="passage-timer-fill" id="instrTimerFill" style="width:0%"></div></div>
+      </div>
+      <div class="reading-instructions" style="padding:20px 24px;">
+        <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:16px;">
+          <div class="reading-instructions-title">Listen or read along — then click the button below when you're ready!</div>
+          <button class="read-btn" id="readInstructionsBtn" onclick="readInstructions()">🔊 Read Aloud</button>
+        </div>
+        <div class="reading-instructions-list">
+          <div class="reading-instruction-item"><span class="icon">📖</span><span id="instr-text-0"><span class="word-span">You</span> <span class="word-span">will</span> <span class="word-span">read</span> <span class="word-span">a</span> <span class="word-span">story</span> <span class="word-span">called</span> <span class="word-span"><strong>Lost</strong></span> <span class="word-span"><strong>in</strong></span> <span class="word-span"><strong>the</strong></span> <span class="word-span"><strong>Amazon.</strong></span> <span class="word-span">Read</span> <span class="word-span">the</span> <span class="word-span"><strong>entire</strong></span> <span class="word-span"><strong>passage</strong></span> <span class="word-span">from</span> <span class="word-span">top</span> <span class="word-span">to</span> <span class="word-span">bottom</span> <span class="word-span">before</span> <span class="word-span">clicking</span> <span class="word-span">"Start</span> <span class="word-span">the</span> <span class="word-span">Questions."</span> <span class="word-span">A</span> <span class="word-span">3-minute</span> <span class="word-span">timer</span> <span class="word-span">will</span> <span class="word-span">run</span> <span class="word-span">—</span> <span class="word-span">the</span> <span class="word-span">questions</span> <span class="word-span">won't</span> <span class="word-span">unlock</span> <span class="word-span">until</span> <span class="word-span">time</span> <span class="word-span">is</span> <span class="word-span">up.</span></span></div>
+          <div class="reading-instruction-item"><span class="icon">🔊</span><span id="instr-text-1"><span class="word-span">Each</span> <span class="word-span">paragraph</span> <span class="word-span">has</span> <span class="word-span">a</span> <span class="word-span">🔊</span> <span class="word-span"><strong>Read</strong></span> <span class="word-span"><strong>Aloud</strong></span> <span class="word-span">button</span> <span class="word-span">underneath</span> <span class="word-span">it.</span> <span class="word-span">Tap</span> <span class="word-span">it</span> <span class="word-span">to</span> <span class="word-span">have</span> <span class="word-span">that</span> <span class="word-span">paragraph</span> <span class="word-span">read</span> <span class="word-span">to</span> <span class="word-span">you</span> <span class="word-span">out</span> <span class="word-span">loud,</span> <span class="word-span">with</span> <span class="word-span">each</span> <span class="word-span">word</span> <span class="word-span">highlighted</span> <span class="word-span">as</span> <span class="word-span">it's</span> <span class="word-span">spoken.</span> <span class="word-span">Tap</span> <span class="word-span">again</span> <span class="word-span">to</span> <span class="word-span">stop.</span></span></div>
+          <div class="reading-instruction-item"><span class="icon">💡</span><span id="instr-text-2"><span class="word-span">You</span> <span class="word-span">can</span> <span class="word-span"><strong>go</strong></span> <span class="word-span"><strong>back</strong></span> <span class="word-span"><strong>and</strong></span> <span class="word-span"><strong>re-read</strong></span> <span class="word-span">the</span> <span class="word-span">passage</span> <span class="word-span">at</span> <span class="word-span">any</span> <span class="word-span">time</span> <span class="word-span">during</span> <span class="word-span">the</span> <span class="word-span">quiz</span> <span class="word-span">by</span> <span class="word-span">tapping</span> <span class="word-span">the</span> <span class="word-span"><strong>📖</strong></span> <span class="word-span"><strong>Re-read</strong></span> <span class="word-span">button</span> <span class="word-span">at</span> <span class="word-span">the</span> <span class="word-span">top</span> <span class="word-span">of</span> <span class="word-span">the</span> <span class="word-span">question</span> <span class="word-span">screen.</span></span></div>
+          <div class="reading-instruction-item"><span class="icon">⭐</span><span id="instr-text-3"><span class="word-span">Pay</span> <span class="word-span">close</span> <span class="word-span">attention</span> <span class="word-span">to</span> <span class="word-span">the</span> <span class="word-span"><strong>bold</strong></span> <span class="word-span"><strong>words</strong></span> <span class="word-span">in</span> <span class="word-span">the</span> <span class="word-span">story</span> <span class="word-span">—</span> <span class="word-span">they</span> <span class="word-span">are</span> <span class="word-span">important</span> <span class="word-span">vocabulary</span> <span class="word-span">words</span> <span class="word-span">that</span> <span class="word-span">will</span> <span class="word-span">appear</span> <span class="word-span">in</span> <span class="word-span">the</span> <span class="word-span">fill-in-the-blank</span> <span class="word-span">questions.</span></span></div>
+          <div class="reading-instruction-item"><span class="icon">✅</span><span id="instr-text-4"><span class="word-span">For</span> <span class="word-span">each</span> <span class="word-span">question,</span> <span class="word-span">pick</span> <span class="word-span">your</span> <span class="word-span">answer,</span> <span class="word-span">then</span> <span class="word-span">tap</span> <span class="word-span"><strong>"That's</strong></span> <span class="word-span"><strong>My</strong></span> <span class="word-span"><strong>Answer!"</strong></span> <span class="word-span">to</span> <span class="word-span">lock</span> <span class="word-span">it</span> <span class="word-span">in.</span> <span class="word-span">You</span> <span class="word-span">can</span> <span class="word-span">change</span> <span class="word-span">your</span> <span class="word-span">mind</span> <span class="word-span">before</span> <span class="word-span">tapping</span> <span class="word-span">that</span> <span class="word-span">button.</span></span></div>
+          <div class="reading-instruction-item"><span class="icon">⏱</span><span id="instr-text-5"><span class="word-span">After</span> <span class="word-span">each</span> <span class="word-span">answer,</span> <span class="word-span">wait</span> <span class="word-span">for</span> <span class="word-span">the</span> <span class="word-span"><strong>10-second</strong></span> <span class="word-span"><strong>review</strong></span> <span class="word-span"><strong>timer</strong></span> <span class="word-span">before</span> <span class="word-span">moving</span> <span class="word-span">on</span> <span class="word-span">—</span> <span class="word-span">use</span> <span class="word-span">that</span> <span class="word-span">time</span> <span class="word-span">to</span> <span class="word-span">read</span> <span class="word-span">the</span> <span class="word-span">explanation</span> <span class="word-span">carefully.</span></span></div>
+        </div>
+        <div style="margin-top:24px;text-align:center;">
+          <button class="btn btn-green" id="goToPassageBtn" onclick="goToPassage()" disabled style="font-size:1.05rem;padding:14px 36px;">🌴 I'm Ready — Show Me the Story!</button>
+          <div style="margin-top:10px;font-size:.78rem;color:var(--muted);font-weight:700;" id="instrBtnNote">⏳ Button unlocks after 1 minute 30 seconds</div>
         </div>
       </div>
     </div>
@@ -253,41 +269,72 @@
     <div class="nav-bar">
       <h2>📖 Read the Passage</h2>
       <div class="score-pill">⭐ <span id="scorePassage">0</span> pts</div>
-      <button class="btn btn-ghost" onclick="saveAndExit()">💾 Save</button>
+      <div class="timer-pill">⏱ <span id="timerPassage">0:00</span></div>
+      <div class="fs-toggle"><button class="fs-btn" onclick="setFontSize('normal')">A</button><button class="fs-btn" onclick="setFontSize('large')">A+</button></div>
+      <button class="btn btn-ghost" onclick="saveAndExit()">⏸ Pause</button>
+      <button class="btn btn-green hidden" id="backToQuizBtn" onclick="returnToQuiz()" style="font-size:.82rem;padding:9px 18px;">📝 Back to Quiz →</button>
     </div>
     <div class="passage-wrap">
       <div class="passage-header">
         <div class="passage-title">🌴 Lost in the Amazon</div>
-        <div class="passage-sub">A story about courage, curiosity, and the rainforest</div>
+        <div class="passage-sub">A story about courage, curiosity, and the rainforest — by Mr. O's Class AI</div>
       </div>
+
+      <!-- PASSAGE TIMER BAR -->
+      <div class="passage-timer-wrap">
+        <div class="passage-timer-top">
+          <div class="passage-timer-label">📖 Read carefully — questions unlock after 3 minutes</div>
+          <div class="passage-timer-count" id="passageTimerCount">3:00 remaining</div>
+        </div>
+        <div class="passage-timer-track"><div class="passage-timer-fill" id="passageTimerFill"></div></div>
+      </div>
+
+      <!-- PASSAGE BODY -->
       <div class="passage-body" id="passageBody">
         <div class="para-wrap" id="para-0">
-          <p>Maya had always dreamed of exploring the Amazon rainforest. When her father, a scientist, invited her on his research trip to Brazil, she could hardly <strong>contain</strong> her excitement. She packed her notebook, her compass, and her favorite pair of binoculars.</p>
+          <p id="para-text-0"><span class="word-span">Maya</span> <span class="word-span">had</span> <span class="word-span">always</span> <span class="word-span">dreamed</span> <span class="word-span">of</span> <span class="word-span">exploring</span> <span class="word-span">the</span> <span class="word-span">Amazon</span> <span class="word-span">rainforest.</span> <span class="word-span">When</span> <span class="word-span">her</span> <span class="word-span">father,</span> <span class="word-span">a</span> <span class="word-span">scientist,</span> <span class="word-span">invited</span> <span class="word-span">her</span> <span class="word-span">on</span> <span class="word-span">his</span> <span class="word-span">research</span> <span class="word-span">trip</span> <span class="word-span">to</span> <span class="word-span">Brazil,</span> <span class="word-span">she</span> <span class="word-span">could</span> <span class="word-span">hardly</span> <span class="word-span"><strong>contain</strong></span> <span class="word-span">her</span> <span class="word-span">excitement.</span> <span class="word-span">She</span> <span class="word-span">packed</span> <span class="word-span">her</span> <span class="word-span">notebook,</span> <span class="word-span">her</span> <span class="word-span">compass,</span> <span class="word-span">and</span> <span class="word-span">her</span> <span class="word-span">favorite</span> <span class="word-span">pair</span> <span class="word-span">of</span> <span class="word-span">binoculars.</span> <span class="word-span">She</span> <span class="word-span">had</span> <span class="word-span">been</span> <span class="word-span">preparing</span> <span class="word-span">for</span> <span class="word-span">a</span> <span class="word-span">trip</span> <span class="word-span">like</span> <span class="word-span">this</span> <span class="word-span">her</span> <span class="word-span">entire</span> <span class="word-span">life.</span></p>
           <button class="read-btn" onclick="readParagraph(0)" id="readBtn-0">🔊 Read Aloud</button>
         </div>
         <div class="para-wrap" id="para-1">
-          <p>On their first morning in the jungle, Maya woke before sunrise. The air was thick and <strong>humid</strong>, heavy with the smell of wet leaves and earth. Strange bird calls echoed through the trees as thin rays of sunlight began to <strong>filter</strong> through the thick canopy above.</p>
+          <p id="para-text-1"><span class="word-span">On</span> <span class="word-span">their</span> <span class="word-span">first</span> <span class="word-span">morning</span> <span class="word-span">in</span> <span class="word-span">the</span> <span class="word-span">jungle,</span> <span class="word-span">Maya</span> <span class="word-span">woke</span> <span class="word-span">before</span> <span class="word-span">sunrise.</span> <span class="word-span">The</span> <span class="word-span">air</span> <span class="word-span">was</span> <span class="word-span">thick</span> <span class="word-span">and</span> <span class="word-span"><strong>humid,</strong></span> <span class="word-span">heavy</span> <span class="word-span">with</span> <span class="word-span">the</span> <span class="word-span">smell</span> <span class="word-span">of</span> <span class="word-span">wet</span> <span class="word-span">leaves</span> <span class="word-span">and</span> <span class="word-span">earth.</span> <span class="word-span">Strange</span> <span class="word-span">bird</span> <span class="word-span">calls</span> <span class="word-span">echoed</span> <span class="word-span">through</span> <span class="word-span">the</span> <span class="word-span">trees</span> <span class="word-span">as</span> <span class="word-span">thin</span> <span class="word-span">rays</span> <span class="word-span">of</span> <span class="word-span">sunlight</span> <span class="word-span">began</span> <span class="word-span">to</span> <span class="word-span"><strong>filter</strong></span> <span class="word-span">through</span> <span class="word-span">the</span> <span class="word-span">thick</span> <span class="word-span">canopy</span> <span class="word-span">above.</span> <span class="word-span">She</span> <span class="word-span">stood</span> <span class="word-span">very</span> <span class="word-span">still</span> <span class="word-span">and</span> <span class="word-span">just</span> <span class="word-span">listened,</span> <span class="word-span">amazed</span> <span class="word-span">at</span> <span class="word-span">how</span> <span class="word-span">alive</span> <span class="word-span">everything</span> <span class="word-span">sounded.</span></p>
           <button class="read-btn" onclick="readParagraph(1)" id="readBtn-1">🔊 Read Aloud</button>
         </div>
         <div class="para-wrap" id="para-2">
-          <p>As she followed a narrow trail, Maya noticed how <strong>diverse</strong> the rainforest was. In just a few steps, she counted three types of colorful frogs, two kinds of flowering vines, and a spider monkey watching her from high in the branches. She scribbled notes as fast as she could.</p>
+          <p id="para-text-2"><span class="word-span">As</span> <span class="word-span">she</span> <span class="word-span">followed</span> <span class="word-span">a</span> <span class="word-span">narrow</span> <span class="word-span">trail,</span> <span class="word-span">Maya</span> <span class="word-span">noticed</span> <span class="word-span">how</span> <span class="word-span"><strong>diverse</strong></span> <span class="word-span">the</span> <span class="word-span">rainforest</span> <span class="word-span">was.</span> <span class="word-span">In</span> <span class="word-span">just</span> <span class="word-span">a</span> <span class="word-span">few</span> <span class="word-span">steps,</span> <span class="word-span">she</span> <span class="word-span">counted</span> <span class="word-span">three</span> <span class="word-span">types</span> <span class="word-span">of</span> <span class="word-span">colorful</span> <span class="word-span">frogs,</span> <span class="word-span">two</span> <span class="word-span">kinds</span> <span class="word-span">of</span> <span class="word-span">flowering</span> <span class="word-span">vines,</span> <span class="word-span">and</span> <span class="word-span">a</span> <span class="word-span">spider</span> <span class="word-span">monkey</span> <span class="word-span">watching</span> <span class="word-span">her</span> <span class="word-span">from</span> <span class="word-span">high</span> <span class="word-span">in</span> <span class="word-span">the</span> <span class="word-span">branches.</span> <span class="word-span">She</span> <span class="word-span">scribbled</span> <span class="word-span">notes</span> <span class="word-span">as</span> <span class="word-span">fast</span> <span class="word-span">as</span> <span class="word-span">she</span> <span class="word-span">could.</span> <span class="word-span">Her</span> <span class="word-span">father</span> <span class="word-span">had</span> <span class="word-span">taught</span> <span class="word-span">her</span> <span class="word-span">that</span> <span class="word-span">careful</span> <span class="word-span"><strong>observation</strong></span> <span class="word-span">was</span> <span class="word-span">the</span> <span class="word-span">most</span> <span class="word-span">important</span> <span class="word-span">skill</span> <span class="word-span">a</span> <span class="word-span">scientist</span> <span class="word-span">could</span> <span class="word-span">have.</span></p>
           <button class="read-btn" onclick="readParagraph(2)" id="readBtn-2">🔊 Read Aloud</button>
         </div>
         <div class="para-wrap" id="para-3">
-          <p>Then it happened. Maya turned around and realized she could no longer see the research camp. Her heart began to race, but she remembered what her father had taught her: stay calm, <strong>observe</strong> your surroundings, and trust your training. She looked for the sun to find her direction and listened for the sound of the nearby river.</p>
+          <p id="para-text-3"><span class="word-span">The</span> <span class="word-span">deeper</span> <span class="word-span">they</span> <span class="word-span">walked</span> <span class="word-span">into</span> <span class="word-span">the</span> <span class="word-span">jungle,</span> <span class="word-span">the</span> <span class="word-span">more</span> <span class="word-span"><strong>dense</strong></span> <span class="word-span">the</span> <span class="word-span">vegetation</span> <span class="word-span">became.</span> <span class="word-span">Enormous</span> <span class="word-span">leaves</span> <span class="word-span">—</span> <span class="word-span">some</span> <span class="word-span">as</span> <span class="word-span">big</span> <span class="word-span">as</span> <span class="word-span">a</span> <span class="word-span">dining</span> <span class="word-span">table</span> <span class="word-span">—</span> <span class="word-span">blocked</span> <span class="word-span">much</span> <span class="word-span">of</span> <span class="word-span">the</span> <span class="word-span">remaining</span> <span class="word-span">light.</span> <span class="word-span">Roots</span> <span class="word-span">twisted</span> <span class="word-span">up</span> <span class="word-span">from</span> <span class="word-span">the</span> <span class="word-span">ground</span> <span class="word-span">like</span> <span class="word-span">giant</span> <span class="word-span">fingers,</span> <span class="word-span">making</span> <span class="word-span">each</span> <span class="word-span">step</span> <span class="word-span"><strong>treacherous.</strong></span> <span class="word-span">Maya</span> <span class="word-span">had</span> <span class="word-span">to</span> <span class="word-span">watch</span> <span class="word-span">every</span> <span class="word-span">footfall</span> <span class="word-span">carefully</span> <span class="word-span">to</span> <span class="word-span">avoid</span> <span class="word-span">tripping.</span></p>
           <button class="read-btn" onclick="readParagraph(3)" id="readBtn-3">🔊 Read Aloud</button>
         </div>
         <div class="para-wrap" id="para-4">
-          <p>After a tense twenty minutes, Maya heard voices and splashing water. She pushed through a wall of broad leaves and stepped into a <strong>clearing</strong> right next to the camp. Her father ran toward her, relieved. Maya grinned and held up her notebook — she had filled six whole pages with <strong>observations</strong>.</p>
+          <p id="para-text-4"><span class="word-span">Then</span> <span class="word-span">it</span> <span class="word-span">happened.</span> <span class="word-span">Maya</span> <span class="word-span">turned</span> <span class="word-span">around</span> <span class="word-span">and</span> <span class="word-span">realized</span> <span class="word-span">she</span> <span class="word-span">could</span> <span class="word-span">no</span> <span class="word-span">longer</span> <span class="word-span">see</span> <span class="word-span">the</span> <span class="word-span">research</span> <span class="word-span">camp.</span> <span class="word-span">Her</span> <span class="word-span">heart</span> <span class="word-span">began</span> <span class="word-span">to</span> <span class="word-span">race,</span> <span class="word-span">but</span> <span class="word-span">she</span> <span class="word-span">remembered</span> <span class="word-span">what</span> <span class="word-span">her</span> <span class="word-span">father</span> <span class="word-span">had</span> <span class="word-span">taught</span> <span class="word-span">her:</span> <span class="word-span">stay</span> <span class="word-span">calm,</span> <span class="word-span"><strong>observe</strong></span> <span class="word-span">your</span> <span class="word-span">surroundings,</span> <span class="word-span">and</span> <span class="word-span">trust</span> <span class="word-span">your</span> <span class="word-span">training.</span> <span class="word-span">She</span> <span class="word-span">took</span> <span class="word-span">three</span> <span class="word-span">slow,</span> <span class="word-span">deep</span> <span class="word-span">breaths.</span> <span class="word-span">Panicking,</span> <span class="word-span">she</span> <span class="word-span">knew,</span> <span class="word-span">would</span> <span class="word-span">only</span> <span class="word-span">make</span> <span class="word-span">things</span> <span class="word-span">worse.</span></p>
           <button class="read-btn" onclick="readParagraph(4)" id="readBtn-4">🔊 Read Aloud</button>
         </div>
         <div class="para-wrap" id="para-5">
-          <p>"I wasn't lost," she told her father with a smile. "I was just doing extra research."</p>
+          <p id="para-text-5"><span class="word-span">Maya</span> <span class="word-span">looked</span> <span class="word-span">for</span> <span class="word-span">the</span> <span class="word-span">sun</span> <span class="word-span">to</span> <span class="word-span">find</span> <span class="word-span">her</span> <span class="word-span">direction</span> <span class="word-span">and</span> <span class="word-span">listened</span> <span class="word-span">for</span> <span class="word-span">the</span> <span class="word-span">sound</span> <span class="word-span">of</span> <span class="word-span">the</span> <span class="word-span">nearby</span> <span class="word-span">river.</span> <span class="word-span">Her</span> <span class="word-span">compass</span> <span class="word-span">told</span> <span class="word-span">her</span> <span class="word-span">she</span> <span class="word-span">had</span> <span class="word-span">been</span> <span class="word-span">walking</span> <span class="word-span">southeast,</span> <span class="word-span">so</span> <span class="word-span">the</span> <span class="word-span">camp</span> <span class="word-span">had</span> <span class="word-span">to</span> <span class="word-span">be</span> <span class="word-span">northwest.</span> <span class="word-span">She</span> <span class="word-span">turned</span> <span class="word-span">herself</span> <span class="word-span">around</span> <span class="word-span">and</span> <span class="word-span">began</span> <span class="word-span">walking</span> <span class="word-span">slowly</span> <span class="word-span">but</span> <span class="word-span"><strong>deliberately,</strong></span> <span class="word-span">checking</span> <span class="word-span">her</span> <span class="word-span">compass</span> <span class="word-span">every</span> <span class="word-span">few</span> <span class="word-span">minutes.</span> <span class="word-span">Each</span> <span class="word-span">step</span> <span class="word-span">was</span> <span class="word-span"><strong>calculated</strong></span> <span class="word-span">and</span> <span class="word-span">careful.</span></p>
           <button class="read-btn" onclick="readParagraph(5)" id="readBtn-5">🔊 Read Aloud</button>
+        </div>
+        <div class="para-wrap" id="para-6">
+          <p id="para-text-6"><span class="word-span">Along</span> <span class="word-span">the</span> <span class="word-span">way,</span> <span class="word-span">she</span> <span class="word-span">noticed</span> <span class="word-span">a</span> <span class="word-span"><strong>peculiar</strong></span> <span class="word-span">orange</span> <span class="word-span">mushroom</span> <span class="word-span">growing</span> <span class="word-span">at</span> <span class="word-span">the</span> <span class="word-span">base</span> <span class="word-span">of</span> <span class="word-span">a</span> <span class="word-span">tree.</span> <span class="word-span">She</span> <span class="word-span">stopped</span> <span class="word-span">to</span> <span class="word-span">sketch</span> <span class="word-span">it</span> <span class="word-span">in</span> <span class="word-span">her</span> <span class="word-span">notebook,</span> <span class="word-span">adding</span> <span class="word-span">the</span> <span class="word-span">exact</span> <span class="word-span">location</span> <span class="word-span">and</span> <span class="word-span">time.</span> <span class="word-span">Even</span> <span class="word-span">lost,</span> <span class="word-span">she</span> <span class="word-span">was</span> <span class="word-span">still</span> <span class="word-span">doing</span> <span class="word-span">science.</span> <span class="word-span">Her</span> <span class="word-span">father</span> <span class="word-span">had</span> <span class="word-span">always</span> <span class="word-span">said</span> <span class="word-span">that</span> <span class="word-span">a</span> <span class="word-span">true</span> <span class="word-span">researcher</span> <span class="word-span">never</span> <span class="word-span">stops</span> <span class="word-span">being</span> <span class="word-span"><strong>curious,</strong></span> <span class="word-span">no</span> <span class="word-span">matter</span> <span class="word-span">the</span> <span class="word-span">circumstances.</span></p>
+          <button class="read-btn" onclick="readParagraph(6)" id="readBtn-6">🔊 Read Aloud</button>
+        </div>
+        <div class="para-wrap" id="para-7">
+          <p id="para-text-7"><span class="word-span">After</span> <span class="word-span">a</span> <span class="word-span">tense</span> <span class="word-span">twenty</span> <span class="word-span">minutes,</span> <span class="word-span">Maya</span> <span class="word-span">heard</span> <span class="word-span">voices</span> <span class="word-span">and</span> <span class="word-span">splashing</span> <span class="word-span">water.</span> <span class="word-span">She</span> <span class="word-span">pushed</span> <span class="word-span">through</span> <span class="word-span">a</span> <span class="word-span">wall</span> <span class="word-span">of</span> <span class="word-span">broad</span> <span class="word-span">leaves</span> <span class="word-span">and</span> <span class="word-span">stepped</span> <span class="word-span">into</span> <span class="word-span">a</span> <span class="word-span"><strong>clearing</strong></span> <span class="word-span">right</span> <span class="word-span">next</span> <span class="word-span">to</span> <span class="word-span">the</span> <span class="word-span">camp.</span> <span class="word-span">Her</span> <span class="word-span">father</span> <span class="word-span">ran</span> <span class="word-span">toward</span> <span class="word-span">her,</span> <span class="word-span">relieved.</span> <span class="word-span">Maya</span> <span class="word-span">grinned</span> <span class="word-span">and</span> <span class="word-span">held</span> <span class="word-span">up</span> <span class="word-span">her</span> <span class="word-span">notebook</span> <span class="word-span">—</span> <span class="word-span">she</span> <span class="word-span">had</span> <span class="word-span">filled</span> <span class="word-span">six</span> <span class="word-span">whole</span> <span class="word-span">pages</span> <span class="word-span">with</span> <span class="word-span"><strong>observations.</strong></span></p>
+          <button class="read-btn" onclick="readParagraph(7)" id="readBtn-7">🔊 Read Aloud</button>
+        </div>
+        <div class="para-wrap" id="para-8">
+          <p id="para-text-8"><span class="word-span">That</span> <span class="word-span">evening,</span> <span class="word-span">sitting</span> <span class="word-span">by</span> <span class="word-span">the</span> <span class="word-span">campfire,</span> <span class="word-span">Maya's</span> <span class="word-span">father</span> <span class="word-span">reviewed</span> <span class="word-span">her</span> <span class="word-span">notes</span> <span class="word-span">with</span> <span class="word-span">wide</span> <span class="word-span">eyes.</span> <span class="word-span">Her</span> <span class="word-span">sketches</span> <span class="word-span">were</span> <span class="word-span"><strong>detailed</strong></span> <span class="word-span">and</span> <span class="word-span">accurate.</span> <span class="word-span">Her</span> <span class="word-span">descriptions</span> <span class="word-span">were</span> <span class="word-span">clear</span> <span class="word-span">and</span> <span class="word-span">organized.</span> <span class="word-span">He</span> <span class="word-span">told</span> <span class="word-span">her</span> <span class="word-span">that</span> <span class="word-span">her</span> <span class="word-span">mushroom</span> <span class="word-span">sketch</span> <span class="word-span">might</span> <span class="word-span">actually</span> <span class="word-span">be</span> <span class="word-span">a</span> <span class="word-span">species</span> <span class="word-span">that</span> <span class="word-span">had</span> <span class="word-span">never</span> <span class="word-span">been</span> <span class="word-span"><strong>documented</strong></span> <span class="word-span">before.</span> <span class="word-span">Maya</span> <span class="word-span">felt</span> <span class="word-span">a</span> <span class="word-span">rush</span> <span class="word-span">of</span> <span class="word-span">pride</span> <span class="word-span">unlike</span> <span class="word-span">anything</span> <span class="word-span">she</span> <span class="word-span">had</span> <span class="word-span">ever</span> <span class="word-span">experienced.</span></p>
+          <button class="read-btn" onclick="readParagraph(8)" id="readBtn-8">🔊 Read Aloud</button>
+        </div>
+        <div class="para-wrap" id="para-9">
+          <p id="para-text-9"><span class="word-span">"I</span> <span class="word-span">wasn't</span> <span class="word-span">lost,"</span> <span class="word-span">she</span> <span class="word-span">told</span> <span class="word-span">her</span> <span class="word-span">father</span> <span class="word-span">with</span> <span class="word-span">a</span> <span class="word-span">smile.</span> <span class="word-span">"I</span> <span class="word-span">was</span> <span class="word-span">just</span> <span class="word-span">doing</span> <span class="word-span">extra</span> <span class="word-span">research."</span> <span class="word-span">Her</span> <span class="word-span">father</span> <span class="word-span">laughed</span> <span class="word-span">and</span> <span class="word-span">pulled</span> <span class="word-span">her</span> <span class="word-span">close.</span> <span class="word-span">Maya</span> <span class="word-span">looked</span> <span class="word-span">out</span> <span class="word-span">at</span> <span class="word-span">the</span> <span class="word-span">dark</span> <span class="word-span">jungle,</span> <span class="word-span">listening</span> <span class="word-span">to</span> <span class="word-span">the</span> <span class="word-span">sounds</span> <span class="word-span">of</span> <span class="word-span">thousands</span> <span class="word-span">of</span> <span class="word-span">creatures</span> <span class="word-span">going</span> <span class="word-span">about</span> <span class="word-span">their</span> <span class="word-span">lives.</span> <span class="word-span">She</span> <span class="word-span">already</span> <span class="word-span">knew</span> <span class="word-span">she</span> <span class="word-span">would</span> <span class="word-span">be</span> <span class="word-span">back</span> <span class="word-span">—</span> <span class="word-span">and</span> <span class="word-span">next</span> <span class="word-span">time,</span> <span class="word-span">she</span> <span class="word-span">would</span> <span class="word-span">be</span> <span class="word-span">even</span> <span class="word-span">more</span> <span class="word-span"><strong>prepared.</strong></span></p>
+          <button class="read-btn" onclick="readParagraph(9)" id="readBtn-9">🔊 Read Aloud</button>
         </div>
       </div>
       <div class="passage-footer">
-        <button class="btn btn-green" onclick="startQuiz()">✅ I've Read It — Start the Questions! →</button>
+        <span class="passage-footer-note" id="passageFooterNote">⏳ Keep reading — questions unlock after 3 minutes on this page.</span>
+        <button class="btn btn-green" id="startQuizBtn" onclick="startQuiz()" disabled>✅ I've Read It — Start the Questions! →</button>
       </div>
     </div>
   </div>
@@ -297,29 +344,40 @@
     <div class="nav-bar">
       <button class="btn btn-ghost" onclick="backToPassage()">📖 Re-read</button>
       <div class="score-pill">⭐ <span id="scoreQuiz">0</span> pts</div>
-      <button class="btn btn-ghost" onclick="saveAndExit()">💾 Save</button>
+      <div class="timer-pill">⏱ <span id="timerQuiz">0:00</span></div>
+      <div class="fs-toggle"><button class="fs-btn" onclick="setFontSize('normal')">A</button><button class="fs-btn" onclick="setFontSize('large')">A+</button></div>
+      <button class="btn btn-ghost" onclick="saveAndExit()">⏸ Pause</button>
     </div>
     <div class="quiz-wrap">
       <div class="quiz-header">
         <div class="quiz-icon">🌿</div>
         <div>
           <div class="quiz-title">Fill in the Blank!</div>
-          <div class="quiz-sub">Choose the word that best completes each sentence.</div>
+          <div class="quiz-sub">Choose the word that best completes each sentence. Max: 400 pts</div>
         </div>
       </div>
       <div class="progress-row">
         <div class="progress-label">Progress</div>
         <div class="progress-track"><div class="progress-fill" id="progressFill" style="width:0%"></div></div>
-        <div class="progress-num" id="progressNum">0 / 15</div>
+        <div class="progress-num" id="progressNum">0 / 40</div>
       </div>
       <div class="q-zone">
         <div class="q-counter" id="qCounter"></div>
         <div class="q-sentence" id="qSentence"></div>
+        <button class="btn btn-ghost" id="readQuestionBtn" onclick="readQuestion()" style="font-size:.82rem;padding:7px 18px;margin-bottom:8px;">🔊 Read Question Aloud</button>
         <div class="choices" id="choicesDiv"></div>
       </div>
       <div class="q-msg msg-neutral" id="qMsg">Pick the word that best fills the blank! 🌴</div>
       <div class="q-footer">
+        <div class="read-countdown" id="readCountdownEl">📖 Read carefully — answers unlock in <span id="readCountdownNum">15</span>s</div>
+        <button class="btn btn-confirm hidden" id="confirmBtn" onclick="confirmAnswer()">✅ That's My Answer!</button>
         <button class="btn btn-green hidden" id="nextBtn" onclick="nextQuestion()">Next Question →</button>
+        <div class="next-countdown hidden" id="countdownEl">⏳ Next in <span id="countdownNum">10</span>s</div>
+      </div>
+      <!-- Missed Q review shown at end of game -->
+      <div class="missed-review hidden" id="missedReview">
+        <h3>📚 Questions You Missed</h3>
+        <div id="missedReviewList"></div>
       </div>
     </div>
   </div>
@@ -333,7 +391,7 @@
     <div class="card results-card">
       <div class="results-icon" id="resultsIcon">🎉</div>
       <div class="results-title" id="resultsTitle">Adventure Complete!</div>
-      <div class="results-score">Final Score: <strong id="resultsScore">0</strong> pts</div>
+      <div class="results-score">Final Score: <strong id="resultsScore">0</strong> / 400 pts</div>
       <div class="results-breakdown" id="resultsBreakdown"></div>
       <button class="btn btn-yellow" onclick="showLeaderboard()" style="width:100%;">🏆 See the Leaderboard!</button>
     </div>
@@ -344,24 +402,23 @@
     <div class="nav-bar">
       <div class="lb-title">🏆 Jungle Explorer Rankings</div>
       <button class="btn btn-ghost" onclick="goBack()">← Back</button>
-      <button class="btn btn-ghost" style="color:var(--red);border-color:var(--red2);" onclick="promptClear()">🗑 Clear</button>
+      <button class="btn btn-ghost" style="color:var(--red);border-color:var(--red2);" onclick="promptPin('clear')">🗑 Clear</button>
     </div>
     <div class="card" style="padding:0;overflow:hidden;">
       <table class="lb-table">
-        <thead><tr><th>#</th><th>Explorer</th><th>Score</th><th>Correct</th><th>Time</th></tr></thead>
+        <thead><tr><th>#</th><th>Explorer</th><th>Score</th><th>Correct</th><th>Time</th><th>Sessions</th></tr></thead>
         <tbody id="lbBody"></tbody>
       </table>
     </div>
   </div>
-
 </div>
 
-<!-- OVERLAYS -->
+<!-- PIN OVERLAY -->
 <div class="overlay" id="pinOverlay">
   <div class="overlay-card">
     <div class="overlay-icon">🔐</div>
-    <div class="overlay-title green">Teacher Access</div>
-    <div class="overlay-body">Enter the teacher PIN to clear all scores.</div>
+    <div class="overlay-title green" id="pinTitle">Teacher Access</div>
+    <div class="overlay-body" id="pinBody">Enter the teacher PIN.</div>
     <input type="password" class="pin-input" id="pinInput" placeholder="• • • •" maxlength="8"/>
     <div id="pinError" style="color:var(--red);font-size:.82rem;min-height:18px;margin-bottom:10px;font-weight:700;"></div>
     <div class="overlay-btns">
@@ -376,188 +433,385 @@
 //  ROSTER
 // ═══════════════════════════════════════════════════
 const ROSTER = [
-  { name: 'Mr. O (Teacher)',           id: '9377'     },
-  { name: 'Aquino-Perez, Steven',      id: '10048814' },
-  { name: 'Camas-Alvarez, Mike',       id: '10060436' },
-  { name: 'Earle, Jeremiah',           id: '10038362' },
-  { name: 'Felix, Chloe',              id: '10065242' },
-  { name: 'Flores Marcos, Cornelio',   id: '10037877' },
-  { name: "Gardner, Zy'iere",          id: '10057389' },
-  { name: 'Giraldo, Layla',            id: '10053382' },
-  { name: 'Lawrence, Lennox',          id: '10045050' },
-  { name: 'Michael, Mulan',            id: '10051762' },
-  { name: 'Millet, Zion',              id: '10053340' },
-  { name: 'Murillo Estrada, Kevin',    id: '10065967' },
-  { name: 'Romaniello, Kaylib',        id: '10041081' },
-  { name: 'Sanango-Quizhpi, Anthony',  id: '10065990' },
-  { name: 'Santos-Bautista, Scarlet',  id: '10062436' },
-  { name: 'Simpson, Jordyn',           id: '10045306' },
-  { name: 'Torres, Aryana',            id: '10053178' },
-  { name: 'Towns, Micah',              id: '10043892' },
-  { name: 'Ulerio-Jimenez, Adrian',    id: '10061117' }
+  { name:'Mr. O (Teacher)',            id:'9377'     },
+  { name:'Aquino-Perez, Steven',       id:'10048814' },
+  { name:'Camas-Alvarez, Mike',        id:'10060436' },
+  { name:'Earle, Jeremiah',            id:'10038362' },
+  { name:'Felix, Chloe',              id:'10065242' },
+  { name:'Flores Marcos, Cornelio',   id:'10037877' },
+  { name:"Gardner, Zy'iere",          id:'10057389' },
+  { name:'Giraldo, Layla',            id:'10053382' },
+  { name:'Lawrence, Lennox',          id:'10045050' },
+  { name:'Michael, Mulan',            id:'10051762' },
+  { name:'Millet, Zion',              id:'10053340' },
+  { name:'Murillo Estrada, Kevin',    id:'10065967' },
+  { name:'Romaniello, Kaylib',        id:'10041081' },
+  { name:'Sanango-Quizhpi, Anthony',  id:'10065990' },
+  { name:'Santos-Bautista, Scarlet',  id:'10062436' },
+  { name:'Simpson, Jordyn',           id:'10045306' },
+  { name:'Torres, Aryana',            id:'10053178' },
+  { name:'Towns, Micah',              id:'10043892' },
+  { name:'Ulerio-Jimenez, Adrian',    id:'10061117' }
 ];
 
 // ═══════════════════════════════════════════════════
-//  CLOZE QUESTIONS — 15 total, A/B/C choices
-//  Answers balanced: A=5, B=5, C=5
-//  Distractors match part of speech of correct answer
+//  40 CLOZE QUESTIONS
 // ═══════════════════════════════════════════════════
-const QUESTIONS = [
-  // ── VOCABULARY from passage ──
-  {
-    sentence: 'Maya could hardly __________ her excitement when her father invited her on the trip.',
-    choices: ['A. contain', 'B. scatter', 'C. ignore'],
-    correct: 0,
-    explain: '✅ "Contain" means to hold something in or keep it under control. Maya was so excited she could barely hold it in!'
-  },
-  {
-    sentence: 'The air in the jungle was thick and __________, like a warm, wet towel wrapped around you.',
-    choices: ['A. frozen', 'B. humid', 'C. breezy'],
-    correct: 1,
-    explain: '✅ "Humid" means the air has a lot of moisture or water in it. Rainforests are very humid places.'
-  },
-  {
-    sentence: 'Thin rays of sunlight began to __________ through the thick leaves above Maya\'s head.',
-    choices: ['A. block', 'B. bounce', 'C. filter'],
-    correct: 2,
-    explain: '✅ "Filter" means to pass through slowly, like light coming through small gaps in the leaves.'
-  },
-  {
-    sentence: 'Maya noticed how __________ the rainforest was — she saw dozens of different animals and plants in just a few steps.',
-    choices: ['A. diverse', 'B. empty', 'C. ordinary'],
-    correct: 0,
-    explain: '✅ "Diverse" means having many different kinds. The rainforest has an enormous variety of plants and animals.'
-  },
-  {
-    sentence: 'Her father taught her to stay calm and __________ her surroundings when she felt lost.',
-    choices: ['A. escape', 'B. observe', 'C. decorate'],
-    correct: 1,
-    explain: '✅ "Observe" means to look carefully and pay close attention. Maya used her observation skills to find her way back.'
-  },
-  // ── CONTEXT CLUES ──
-  {
-    sentence: 'Maya pushed through a wall of broad leaves and stepped into a __________ — an open space — right next to the camp.',
-    choices: ['A. tunnel', 'B. mountain', 'C. clearing'],
-    correct: 2,
-    explain: '✅ A "clearing" is an open area in a forest or jungle with fewer trees and plants.'
-  },
-  {
-    sentence: 'She filled six whole pages with __________, carefully writing down everything she noticed in the jungle.',
-    choices: ['A. observations', 'B. directions', 'C. complaints'],
-    correct: 0,
-    explain: '✅ "Observations" are things you notice and write down while paying careful attention. Maya was acting like a scientist!'
-  },
-  {
-    sentence: 'The spider monkey watched Maya from __________ in the branches, far above the jungle floor.',
-    choices: ['A. briefly', 'B. high', 'C. below'],
-    correct: 1,
-    explain: '✅ The story says the monkey was watching "from high in the branches," so "high" is the best fit.'
-  },
-  {
-    sentence: 'Maya\'s heart began to race, but she remembered to stay __________ instead of panicking.',
-    choices: ['A. hidden', 'B. noisy', 'C. calm'],
-    correct: 2,
-    explain: '✅ Her father told her to "stay calm." Calm means relaxed and in control, even in a scary situation.'
-  },
-  {
-    sentence: 'She looked for the __________ in the sky to figure out which direction to walk.',
-    choices: ['A. sun', 'B. moon', 'C. stars'],
-    correct: 0,
-    explain: '✅ The passage says Maya "looked for the sun to find her direction." The sun helps you navigate during the day.'
-  },
-  // ── INFERENCE & COMPREHENSION ──
-  {
-    sentence: 'Maya brought a compass on the trip because she knew the jungle could be easy to get __________ in.',
-    choices: ['A. comfortable', 'B. lost', 'C. excited'],
-    correct: 1,
-    explain: '✅ A compass helps you find directions so you do not get lost. Maya was prepared for the jungle.'
-  },
-  {
-    sentence: 'Maya scribbled notes "as fast as she could," which shows that she was __________ by everything she saw.',
-    choices: ['A. bored', 'B. confused', 'C. fascinated'],
-    correct: 2,
-    explain: '✅ Writing as fast as she could shows Maya was fascinated — deeply interested and excited by what she saw.'
-  },
-  {
-    sentence: 'When Maya said "I wasn\'t lost — I was just doing extra research," she was being __________ about her scary experience.',
-    choices: ['A. honest', 'B. humorous', 'C. serious'],
-    correct: 1,
-    explain: '✅ Her comment was a joke! She was making a funny remark to lighten the mood after getting lost. That is humor.'
-  },
-  {
-    sentence: 'Maya\'s father is a scientist, which is why she knew how to __________ her surroundings and take careful notes.',
-    choices: ['A. observe', 'B. ignore', 'C. paint'],
-    correct: 0,
-    explain: '✅ Scientists observe — they watch carefully and record what they see. Maya learned this skill from her father.'
-  },
-  {
-    sentence: 'The canopy of the rainforest is so thick that only a little sunlight can __________ through to the jungle floor below.',
-    choices: ['A. flood', 'B. disappear', 'C. filter'],
-    correct: 2,
-    explain: '✅ "Filter" is used in the passage to describe how light passes through small gaps in the dense leaves above.'
-  }
+const QUESTIONS_MASTER = [
+  {s:'Maya could hardly __________ her excitement when her father invited her on the trip to Brazil.',correct:'contain',d:['scatter','ignore'],e:'✅ "Contain" means to hold something inside. Maya was so excited she could barely hold it in!'},
+  {s:'The jungle air was thick and __________, heavy with the smell of wet leaves and earth.',correct:'humid',d:['frozen','dusty'],e:'✅ "Humid" means full of moisture. Rainforests are very humid because of all the rain.'},
+  {s:'Thin rays of sunlight began to __________ through the thick canopy of leaves above her head.',correct:'filter',d:['block','escape'],e:'✅ "Filter" means to pass through slowly, like light coming through small gaps in the leaves.'},
+  {s:'Maya noticed how __________ the rainforest was — she counted dozens of different animals and plants in just a few steps.',correct:'diverse',d:['empty','quiet'],e:'✅ "Diverse" means having many different kinds. The Amazon has more diversity than almost anywhere on Earth.'},
+  {s:'Her father taught her that careful __________ was the most important skill a scientist could have.',correct:'observation',d:['decoration','imagination'],e:'✅ "Observation" means watching carefully and paying close attention to details.'},
+  {s:'The deeper they walked, the more __________ the vegetation became, blocking out most of the sunlight.',correct:'dense',d:['colorful','gentle'],e:'✅ "Dense" means thick and closely packed together with little open space.'},
+  {s:'The tangled roots made each step __________, and Maya had to watch carefully to avoid tripping.',correct:'treacherous',d:['comfortable','peaceful'],e:'✅ "Treacherous" means dangerous and difficult to travel through safely.'},
+  {s:'Instead of rushing, Maya walked slowly but __________, checking her compass every few minutes.',correct:'deliberately',d:['randomly','carelessly'],e:'✅ "Deliberately" means doing something carefully and on purpose — not by accident.'},
+  {s:'Each of Maya\'s steps was __________ and thoughtful as she worked to find her way back.',correct:'calculated',d:['rushed','accidental'],e:'✅ "Calculated" means carefully planned and thought out before acting.'},
+  {s:'She noticed a __________ orange mushroom — it was unlike anything she had ever seen before.',correct:'peculiar',d:['common','tiny'],e:'✅ "Peculiar" means strange or unusual in a way that grabs your attention.'},
+  {s:'Maya\'s father always said that a true researcher never stops being __________, no matter the circumstances.',correct:'curious',d:['cautious','silent'],e:'✅ "Curious" means always wanting to learn more and find out how things work.'},
+  {s:'She stepped into a __________ — an open space free of trees — right next to the camp.',correct:'clearing',d:['tunnel','mountain'],e:'✅ A "clearing" is an open area in a forest or jungle where the trees and plants thin out.'},
+  {s:'Maya held up her notebook filled with __________ — she had written down everything she saw.',correct:'observations',d:['directions','complaints'],e:'✅ "Observations" are careful notes about things you have noticed while paying close attention.'},
+  {s:'Her sketches were __________ and accurate — every small detail of the mushroom was drawn perfectly.',correct:'detailed',d:['rushed','unclear'],e:'✅ "Detailed" means including many specific and accurate features or pieces of information.'},
+  {s:'Her father told her the mushroom might be a species that had never been __________ before.',correct:'documented',d:['discovered','painted'],e:'✅ "Documented" means officially written down or recorded so others can learn about it.'},
+  {s:'Maya packed her notebook, her compass, and her binoculars because she wanted to be fully __________ for the trip.',correct:'prepared',d:['distracted','disappointed'],e:'✅ Someone who packs all the right tools before a trip is being prepared — ready for what might happen.'},
+  {s:'The spider monkey watched Maya from __________ in the branches, far above the jungle floor.',correct:'high',d:['below','nearby'],e:'✅ The story says the monkey was watching "from high in the branches," so it was above her.'},
+  {s:'Maya\'s heart began to race when she got lost, but she chose to stay __________ instead of panicking.',correct:'calm',d:['loud','confused'],e:'✅ Her father told her to "stay calm." Staying calm means remaining relaxed and in control even when scared.'},
+  {s:'She used her compass to figure out which __________ to walk so she could find the camp.',correct:'direction',d:['distance','decision'],e:'✅ A compass helps you find direction — which way is north, south, east, or west.'},
+  {s:'Maya knew that __________ would only make things worse, so she took three deep breaths instead.',correct:'panicking',d:['walking','resting'],e:'✅ The passage tells us she knew panicking would make things worse, so she avoided it.'},
+  {s:'Even while she was lost, Maya never stopped being a __________ — she kept sketching and taking notes.',correct:'scientist',d:['tourist','student'],e:'✅ Scientists observe and record everything around them. Maya kept doing exactly that even when lost.'},
+  {s:'The leaves were so large they __________ much of the light from reaching the jungle floor below.',correct:'blocked',d:['created','reflected'],e:'✅ The passage says the enormous leaves "blocked much of the remaining light."'},
+  {s:'After twenty tense minutes, Maya finally heard __________ and splashing water that led her back to camp.',correct:'voices',d:['music','thunder'],e:'✅ The passage says "Maya heard voices and splashing water" that helped her find the camp.'},
+  {s:'Maya\'s father ran toward her when she returned because he was __________ to see she was safe.',correct:'relieved',d:['surprised','confused'],e:'✅ The story says her father ran toward her, "relieved" — which means he felt better once he knew she was safe.'},
+  {s:'That evening by the campfire, Maya\'s father looked at her notes with __________ eyes — he was amazed at what she had recorded.',correct:'wide',d:['tired','closed'],e:'✅ "Wide eyes" is a common expression that shows surprise and amazement at something unexpected.'},
+  {s:'Maya felt a rush of __________ when her father said the mushroom might be a new species never seen before.',correct:'pride',d:['anger','sadness'],e:'✅ Pride is the feeling of satisfaction and happiness you get when you accomplish something impressive.'},
+  {s:'Maya looked out at the dark jungle and knew she would __________ to explore again as soon as she could.',correct:'return',d:['escape','forget'],e:'✅ The passage says "she already knew she would be back," meaning she planned to return.'},
+  {s:'Next time she explored, Maya told herself she would be even more __________ than she was on this trip.',correct:'prepared',d:['distracted','cautious'],e:'✅ The final paragraph says she would be "even more prepared" — ready with better skills and supplies.'},
+  {s:'Maya brought a compass on the trip because she knew large jungles could be easy to get __________ in.',correct:'lost',d:['bored','excited'],e:'✅ A compass helps you find your direction so you don\'t get lost — showing she thought ahead.'},
+  {s:'The fact that Maya scribbled notes "as fast as she could" shows that she was __________ by everything she saw.',correct:'fascinated',d:['frightened','confused'],e:'✅ Writing as fast as you can is a sign of fascination — being deeply interested and eager to record it all.'},
+  {s:'When Maya said "I wasn\'t lost — I was just doing extra research," she was being __________ about a scary situation.',correct:'humorous',d:['serious','dishonest'],e:'✅ Her comment was a joke meant to lighten the mood. Using humor after something scary is a way of coping.'},
+  {s:'Because Maya\'s father is a scientist, she grew up learning how to __________ the world around her with care and patience.',correct:'observe',d:['ignore','avoid'],e:'✅ Scientists observe — they watch carefully and record what they see. Maya learned this from her father.'},
+  {s:'The canopy was so thick that only a little sunlight could __________ through to the jungle floor.',correct:'filter',d:['flood','disappear'],e:'✅ The word "filter" is used in the passage to describe how light passes through the small gaps in dense leaves.'},
+  {s:'Maya\'s ability to use her compass and stay calm showed that she had good __________ skills.',correct:'survival',d:['artistic','social'],e:'✅ Using a compass, staying calm, and finding her way back are all survival skills — how to stay safe in the wild.'},
+  {s:'The spider monkey\'s decision to watch Maya from high in the trees suggests it found her __________ but was not sure if she was safe.',correct:'interesting',d:['frightening','familiar'],e:'✅ An animal that watches you but doesn\'t run away is likely curious — it finds you interesting.'},
+  {s:'Maya\'s detailed sketches and notes suggest that she is a __________ and careful person.',correct:'thorough',d:['hasty','forgetful'],e:'✅ Someone who fills six pages with detailed, accurate notes is being thorough — complete and careful in their work.'},
+  {s:'The way Maya stayed calm and used her tools when lost shows that her father\'s __________ had paid off.',correct:'teaching',d:['worrying','traveling'],e:'✅ Everything Maya did to find her way back — staying calm, using her compass — came from what her father taught her.'},
+  {s:'The story suggests that exploring the Amazon made Maya feel more __________ about becoming a scientist one day.',correct:'confident',d:['nervous','uncertain'],e:'✅ Successfully navigating a dangerous situation and possibly discovering a new species would make any young scientist feel more confident.'},
+  {s:'Maya\'s behavior throughout the story shows that she values __________ over giving up when things get difficult.',correct:'perseverance',d:['perfection','competition'],e:'✅ Perseverance means continuing to try even when things get hard. Maya kept working even while lost.'},
+  {s:'Based on the ending of the story, we can conclude that Maya\'s experience in the Amazon was overall __________ for her.',correct:'positive',d:['negative','boring'],e:'✅ Despite getting lost, Maya discovered a new species, filled six pages of notes, and felt proud. The experience was positive overall.'}
 ];
 
 // ═══════════════════════════════════════════════════
-//  CONSTANTS & STATE
+//  CONSTANTS
 // ═══════════════════════════════════════════════════
-const SAVE_KEY    = 'jungleCloze_save_v1';
-const LB_KEY      = 'jungleCloze_lb_v1';
-const TEACHER_PIN = '9377';
-const PTS_CORRECT = 10;
-const SHEET_URL   = 'https://script.google.com/macros/s/AKfycby10TlvNfSkSUsSt6wkLXyYXrtDct_0MDVnzCbdKESwpofPlKUf6lVoRbGdLCeMAhpZAg/exec';
+const SAVE_KEY       = 'jungleCloze_v2_save';
+const LB_KEY         = 'jungleCloze_v2_lb';
+const LOCK_KEY       = 'jungleCloze_v2_lock';
+const TEACHER_PIN    = '9377';
+const PTS_PER_Q      = 10;
+const MAX_SCORE      = QUESTIONS_MASTER.length * PTS_PER_Q; // 400
+const PASSAGE_MIN_MS = 3 * 60 * 1000; // 3 minutes
+const INSTRS_MIN_MS  = 90 * 1000; // 1 minute 30 seconds
+const SHEET_URL      = 'https://script.google.com/macros/s/AKfycby10TlvNfSkSUsSt6wkLXyYXrtDct_0MDVnzCbdKESwpofPlKUf6lVoRbGdLCeMAhpZAg/exec';
 
+// ═══════════════════════════════════════════════════
+//  HELPERS
+// ═══════════════════════════════════════════════════
+function genSessionId(){ return Date.now().toString(36)+Math.random().toString(36).slice(2,7); }
+function shuffle(arr){ const a=[...arr]; for(let i=a.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];} return a; }
+function capScore(s){ return Math.min(s,MAX_SCORE); }
+function formatTime(s){
+  if(s==null) return '—';
+  const m=Math.floor(s/60),sec=Math.floor(s%60);
+  return `${m}:${String(sec).padStart(2,'0')}`;
+}
+
+function buildShuffledQuestions(){
+  return shuffle(QUESTIONS_MASTER).map(q => {
+    const choices = shuffle([q.correct, ...q.d]);
+    return { s:q.s, choices, correct: choices.indexOf(q.correct), e:q.e };
+  });
+}
+
+// ═══════════════════════════════════════════════════
+//  STATE
+// ═══════════════════════════════════════════════════
 let state = {};
 let currentScreen = 'entry';
-let prevScreen    = 'entry';
+let prevScreen = 'entry';
+let shuffledQs = [];
+let globalTimerInterval = null;
+let passageTimerInterval = null;
+let instrTimerInterval = null;
+let elapsedSeconds = 0;
+let passageUnlocked = false;
+let instrUnlocked = false;
+let pinMode = '';
+let pinAttempts = 0;
+let activeParaIndex = null;
+let currentWordSpans = [];
+let currentHighlightIdx = -1;
+let tabSwitches = 0;
+let timePerQuestion = [];
+let allWrongQuestions = [];
+let qStartTime = null;
+let isReadLocked = false;
+let readTicker = null;
+let nextCountdownTicker = null;
+let readSecsRemaining = 15;
 
-function freshState(name) {
+function freshState(name){
   return {
     playerName: name,
+    sessionId: genSessionId(),
+    sessionStart: Date.now(),
     score: 0,
     currentQIndex: 0,
     answers: [],
     awaitingNext: false,
     done: false,
-    startTime: null,   // set when quiz begins
-    elapsedSeconds: null // set when quiz finishes
+    passageStart: null,
+    instrStart: null,
+    instrPausedAt: null,
+    elapsedSeconds: null,
+    selectedIdx: -1
   };
 }
 
 // ═══════════════════════════════════════════════════
+//  FONT SIZE
+// ═══════════════════════════════════════════════════
+function setFontSize(size){
+  const val = size==='large' ? '1.18rem' : '1rem';
+  document.documentElement.style.setProperty('--fs', val);
+  document.querySelectorAll('.fs-btn').forEach(b=>b.classList.remove('active'));
+  document.querySelectorAll('.fs-btn').forEach(b=>{
+    if((size==='large'&&b.textContent==='A+')||(size==='normal'&&b.textContent==='A'))
+      b.classList.add('active');
+  });
+  localStorage.setItem('clozeFontSize', size);
+}
+
+// ═══════════════════════════════════════════════════
+//  TAB SWITCH DETECTION
+// ═══════════════════════════════════════════════════
+function initTabDetection(){
+  document.addEventListener('visibilitychange',()=>{
+    if(document.hidden){
+      // ── TAB HIDDEN: pause all active timers ──
+      if(currentScreen==='quiz'){
+        tabSwitches++;
+        const w=document.createElement('div');
+        w.className='tab-warning';
+        w.textContent=`⚠️ Tab switch detected! (${tabSwitches}) — Stay on this page!`;
+        document.body.appendChild(w);
+        setTimeout(()=>w.remove(),3000);
+        // Pause read lock timer
+        if(readTicker && isReadLocked){
+          clearInterval(readTicker); readTicker=null;
+          window._readLockWasActive = true;
+          window._readSecsRemaining = readSecsRemaining;
+        }
+        // Pause next-question countdown
+        if(nextCountdownTicker){
+          clearInterval(nextCountdownTicker); nextCountdownTicker=null;
+          window._nextCountdownWasActive = true;
+          window._nextSecsRemaining = parseInt(document.getElementById('countdownNum')?.textContent||'0');
+        }
+      }
+      // Pause passage timer (any screen)
+      if(state && state.passageStart && !passageUnlocked){
+        clearInterval(passageTimerInterval); passageTimerInterval=null;
+        state.pausedAt = Date.now();
+        saveState();
+      }
+      // Pause instructions timer
+      if(state && state.instrStart && !instrUnlocked){
+        clearInterval(instrTimerInterval); instrTimerInterval=null;
+        state.instrPausedAt = Date.now();
+        saveState();
+      }
+    } else {
+      // ── TAB VISIBLE: resume all paused timers ──
+      // Resume passage timer (adjust inline, restart interval directly)
+      if(state && state.passageStart && !passageUnlocked && state.pausedAt){
+        const pausedDuration = Date.now() - state.pausedAt;
+        state.passageStart += pausedDuration;
+        state.pausedAt = null;
+        saveState();
+        if(passageTimerInterval){ clearInterval(passageTimerInterval); passageTimerInterval=null; }
+        passageTimerInterval = setInterval(()=>{
+          const elapsed   = Date.now() - state.passageStart;
+          const remaining = Math.max(0, PASSAGE_MIN_MS - elapsed);
+          const pct       = Math.min(100, (elapsed / PASSAGE_MIN_MS) * 100);
+          document.getElementById('passageTimerFill').style.width = pct+'%';
+          const countEl = document.getElementById('passageTimerCount');
+          if(countEl) countEl.textContent = remaining > 0
+            ? formatTime(Math.floor(remaining/1000)) + ' remaining'
+            : 'Ready!';
+          if(remaining <= 0 && !passageUnlocked){
+            clearInterval(passageTimerInterval); passageTimerInterval=null;
+            passageUnlocked = true;
+            document.getElementById('startQuizBtn').disabled = false;
+            document.getElementById('passageFooterNote').textContent = '✅ Questions are unlocked. Click when ready!';
+            document.getElementById('passageTimerFill').style.width = '100%';
+          }
+        }, 1000);
+      }
+      // Resume instructions timer (adjust for paused time, restart interval only)
+      if(state && state.instrStart && !instrUnlocked && state.instrPausedAt){
+        const pausedDuration = Date.now() - state.instrPausedAt;
+        state.instrStart += pausedDuration;
+        state.instrPausedAt = null;
+        saveState();
+        // Restart interval directly — do NOT call startInstructionsTimer() 
+        // as that resets the UI and double-shifts instrStart
+        if(instrTimerInterval){ clearInterval(instrTimerInterval); instrTimerInterval=null; }
+        instrTimerInterval = setInterval(()=>{
+          const elapsed   = Date.now() - state.instrStart;
+          const remaining = Math.max(0, INSTRS_MIN_MS - elapsed);
+          const pct       = Math.min(100, (elapsed / INSTRS_MIN_MS) * 100);
+          const fillEl  = document.getElementById('instrTimerFill');
+          const countEl = document.getElementById('instrTimerCount');
+          if(fillEl)  fillEl.style.width = pct + '%';
+          if(countEl) countEl.textContent = remaining > 0
+            ? formatTime(Math.floor(remaining / 1000)) + ' remaining'
+            : 'Ready!';
+          if(remaining <= 0 && !instrUnlocked){
+            clearInterval(instrTimerInterval); instrTimerInterval=null;
+            instrUnlocked = true;
+            const btn2  = document.getElementById('goToPassageBtn');
+            const note2 = document.getElementById('instrBtnNote');
+            const lbl2  = document.getElementById('instrTimerLabel');
+            if(btn2)  btn2.disabled = false;
+            if(note2) note2.textContent = '✅ You\'ve read the instructions — click the button above!';
+            if(lbl2)  lbl2.textContent = '✅ Instructions complete!';
+          }
+        }, 1000);
+      }
+      // Resume read lock timer
+      if(currentScreen==='quiz' && window._readLockWasActive && window._readSecsRemaining > 0){
+        isReadLocked = true;
+        document.getElementById('readCountdownEl').classList.remove('hidden');
+        document.getElementById('readCountdownNum').textContent = window._readSecsRemaining;
+        readSecsRemaining = window._readSecsRemaining;
+        readTicker = setInterval(()=>{
+          readSecsRemaining--;
+          const el = document.getElementById('readCountdownNum');
+          if(el) el.textContent = readSecsRemaining;
+          if(readSecsRemaining <= 0){
+            clearInterval(readTicker); readTicker=null;
+            document.getElementById('readCountdownEl').classList.add('hidden');
+            isReadLocked = false;
+            document.querySelectorAll('.choice-btn').forEach(b=>b.classList.remove('locked'));
+          }
+        }, 1000);
+        window._readLockWasActive = false;
+      }
+      // Resume next-question countdown
+      if(currentScreen==='quiz' && window._nextCountdownWasActive && window._nextSecsRemaining > 0){
+        const countdownEl = document.getElementById('countdownEl');
+        const countdownNum = document.getElementById('countdownNum');
+        const nextBtn = document.getElementById('nextBtn');
+        countdownEl.classList.remove('hidden'); nextBtn.classList.add('hidden');
+        countdownNum.textContent = window._nextSecsRemaining;
+        nextCountdownTicker = setInterval(()=>{
+          const s = parseInt(countdownNum.textContent) - 1;
+          countdownNum.textContent = s;
+          if(s <= 0){
+            clearInterval(nextCountdownTicker); nextCountdownTicker=null;
+            countdownEl.classList.add('hidden');
+            const isLast = state.currentQIndex >= QUESTIONS_MASTER.length - 1;
+            nextBtn.textContent = isLast ? 'See My Results! 🎉' : 'Next Question →';
+            nextBtn.classList.remove('hidden');
+          }
+        }, 1000);
+        window._nextCountdownWasActive = false;
+      }
+    }
+  });
+}
+function getLocks(){ try{ return JSON.parse(localStorage.getItem(LOCK_KEY))||{}; }catch(e){ return {}; } }
+function lockStudent(name){ const l=getLocks(); l[name]=true; localStorage.setItem(LOCK_KEY,JSON.stringify(l)); }
+function unlockStudent(name){ const l=getLocks(); delete l[name]; localStorage.setItem(LOCK_KEY,JSON.stringify(l)); }
+
+// ═══════════════════════════════════════════════════
 //  INIT
 // ═══════════════════════════════════════════════════
-window.onload = () => {
-  const sel = document.getElementById('nameSelect');
-  ROSTER.forEach(s => {
-    const opt = document.createElement('option');
-    opt.value = s.name; opt.textContent = s.name;
-    sel.appendChild(opt);
-  });
-  document.getElementById('studentIdInput').addEventListener('keydown', e => { if (e.key === 'Enter') startGame(); });
-  document.getElementById('pinInput').addEventListener('keydown', e => { if (e.key === 'Enter') checkPin(); });
+// Save pause timestamp on ANY page unload (refresh, close, navigate)
+// so paused time never counts toward the 3-minute passage timer
+window.addEventListener('beforeunload', () => {
+  if(!state) return;
+  // Save instructions timer pause
+  if(state.instrStart && !instrUnlocked){
+    state.instrPausedAt = Date.now();
+  }
+  // Save passage timer pause
+  if(state.passageStart && !passageUnlocked){
+    state.pausedAt = Date.now();
+  }
+  // Save read lock timer if active
+  if(readTicker && isReadLocked){
+    state.readLockPausedAt = Date.now();
+    state.readLockSecsLeft = readSecsRemaining;
+  } else {
+    state.readLockPausedAt = null;
+    state.readLockSecsLeft = null;
+  }
+  // Save next-question countdown if active
+  if(nextCountdownTicker){
+    state.nextCDPausedAt = Date.now();
+    state.nextCDSecsLeft = parseInt(document.getElementById('countdownNum')?.textContent||'0');
+  } else {
+    state.nextCDPausedAt = null;
+    state.nextCDSecsLeft = null;
+  }
+  saveState();
+});
 
+window.onload = () => {
+  if(window.speechSynthesis){ window.speechSynthesis.getVoices(); window.speechSynthesis.onvoiceschanged = () => window.speechSynthesis.getVoices(); }
+  const fs = localStorage.getItem('clozeFontSize') || 'normal';
+  setFontSize(fs);
+  initTabDetection();
+  const sel = document.getElementById('nameSelect');
+  ROSTER.forEach(s => { const o=document.createElement('option'); o.value=s.name; o.textContent=s.name; sel.appendChild(o); });
+  document.getElementById('studentIdInput').addEventListener('keydown', e=>{ if(e.key==='Enter') startGame(); });
+  document.getElementById('pinInput').addEventListener('keydown', e=>{ if(e.key==='Enter') checkPin(); });
   const saved = localStorage.getItem(SAVE_KEY);
-  if (saved) {
-    try {
-      const p = JSON.parse(saved);
-      if (p && p.playerName) {
+  if(saved){
+    try{
+      const p=JSON.parse(saved);
+      // Only show resume if student actually reached the passage (passageStart saved)
+      // This prevents skipping instructions by refreshing during the directions screen
+      if(p&&p.playerName&&!p.done&&p.passageStart){
         document.getElementById('resumeSection').classList.remove('hidden');
-        document.getElementById('resumeInfo').textContent =
-          `"${p.playerName}" — Score: ${p.score} pts | Question ${p.currentQIndex + 1} of ${QUESTIONS.length}`;
+        document.getElementById('resumeInfo').textContent=`"${p.playerName}" — Score: ${p.score} pts | Question ${p.currentQIndex+1} of ${QUESTIONS_MASTER.length}`;
       }
-    } catch(e) {}
+    }catch(e){
+      document.getElementById('resumeSection').classList.add('hidden');
+    }
   }
 };
 
-function onNameSelect() {
+function onNameSelect(){
   const val = document.getElementById('nameSelect').value;
   const sec = document.getElementById('idSection');
-  if (val) {
+  const lb  = document.getElementById('lockedBanner');
+  const rs  = document.getElementById('resumeSection');
+  lb.classList.add('hidden');
+  if(val){
+    const locks = getLocks();
+    if(locks[val]){
+      sec.classList.add('hidden');
+      rs.classList.add('hidden');
+      document.getElementById('lockedMsg').textContent=`${val} already completed Jungle Adventure. Ask Mr. O for a PIN if you need to replay.`;
+      lb.classList.remove('hidden');
+      return;
+    }
     sec.classList.remove('hidden');
-    document.getElementById('studentIdInput').value = '';
-    document.getElementById('loginError').textContent = '';
-    setTimeout(() => document.getElementById('studentIdInput').focus(), 50);
+    document.getElementById('studentIdInput').value='';
+    document.getElementById('loginError').textContent='';
+    setTimeout(()=>document.getElementById('studentIdInput').focus(),50);
   } else {
     sec.classList.add('hidden');
   }
@@ -566,402 +820,973 @@ function onNameSelect() {
 // ═══════════════════════════════════════════════════
 //  SCREEN NAV
 // ═══════════════════════════════════════════════════
-function showScreen(id) {
-  ['entry','passage','quiz','results','leaderboard'].forEach(s =>
-    document.getElementById('screen-' + s).style.display = 'none');
-  document.getElementById('screen-' + id).style.display = 'block';
-  prevScreen = currentScreen;
-  currentScreen = id;
+function showScreen(id){
+  ['entry','instructions','passage','quiz','results','leaderboard'].forEach(s=>
+    document.getElementById('screen-'+s).style.display='none');
+  document.getElementById('screen-'+id).style.display='block';
+  prevScreen=currentScreen; currentScreen=id;
 }
-function goBack() {
-  showScreen(prevScreen === 'quiz' || prevScreen === 'results' ? 'entry' : 'entry');
+function goBack(){ showScreen(prevScreen); }
+
+// ═══════════════════════════════════════════════════
+//  GLOBAL TIMER
+// ═══════════════════════════════════════════════════
+function startGlobalTimer(){
+  if(globalTimerInterval) return;
+  const base = state.sessionStart;
+  globalTimerInterval = setInterval(()=>{
+    elapsedSeconds = Math.floor((Date.now()-base)/1000);
+    const fmt = formatTime(elapsedSeconds);
+    ['timerPassage','timerQuiz'].forEach(id=>{ const el=document.getElementById(id); if(el) el.textContent=fmt; });
+  },1000);
+}
+function stopGlobalTimer(){ clearInterval(globalTimerInterval); globalTimerInterval=null; }
+
+// ═══════════════════════════════════════════════════
+//  ✅ FIX: INSTRUCTIONS TIMER — fully reset on each new game
+// ═══════════════════════════════════════════════════
+function startInstructionsTimer(){
+  // ✅ FIX: always clear any leftover interval from a previous run
+  if(instrTimerInterval){ clearInterval(instrTimerInterval); instrTimerInterval=null; }
+
+  // Reset UI to initial state so the bar and countdown are fresh
+  const fillEl  = document.getElementById('instrTimerFill');
+  const countEl = document.getElementById('instrTimerCount');
+  const labelEl = document.getElementById('instrTimerLabel');
+  const btn     = document.getElementById('goToPassageBtn');
+  const note    = document.getElementById('instrBtnNote');
+  if(fillEl)  fillEl.style.width = '0%';
+  if(countEl) countEl.textContent = '1:30 remaining';
+  if(labelEl) labelEl.textContent = '📋 Read the instructions — story unlocks in 1:30';
+  if(btn)     btn.disabled = true;
+  if(note)    note.textContent = '⏳ Button unlocks after 1 minute 30 seconds';
+
+  // Adjust for any paused time (navigate away / refresh)
+  if(state.instrPausedAt && state.instrStart){
+    const pausedDuration = Date.now() - state.instrPausedAt;
+    state.instrStart += pausedDuration;
+    state.instrPausedAt = null;
+    saveState();
+  }
+  if(!state.instrStart){ state.instrStart = Date.now(); saveState(); }
+  const startMs = state.instrStart;
+
+  instrTimerInterval = setInterval(()=>{
+    const elapsed   = Date.now() - startMs;
+    const remaining = Math.max(0, INSTRS_MIN_MS - elapsed);
+    const pct       = Math.min(100, (elapsed / INSTRS_MIN_MS) * 100);
+
+    const fillEl2  = document.getElementById('instrTimerFill');
+    const countEl2 = document.getElementById('instrTimerCount');
+    if(fillEl2)  fillEl2.style.width  = pct + '%';
+    if(countEl2) countEl2.textContent = remaining > 0
+      ? formatTime(Math.floor(remaining / 1000)) + ' remaining'
+      : 'Ready!';
+
+    if(remaining <= 0 && !instrUnlocked){
+      clearInterval(instrTimerInterval);
+      instrTimerInterval = null;
+      instrUnlocked = true;
+      const btn2  = document.getElementById('goToPassageBtn');
+      const note2 = document.getElementById('instrBtnNote');
+      const lbl2  = document.getElementById('instrTimerLabel');
+      if(btn2)  btn2.disabled = false;
+      if(note2) note2.textContent = '✅ You\'ve read the instructions — click when ready!';
+      if(lbl2)  lbl2.textContent  = '✅ Story is now unlocked!';
+    }
+  }, 500);
+}
+
+// ═══════════════════════════════════════════════════
+//  PASSAGE TIMER (3-min reading lock)
+// ═══════════════════════════════════════════════════
+function startPassageTimer(){
+  if(passageTimerInterval||passageUnlocked) return;
+  // If resuming after a pause, shift passageStart forward by paused duration
+  // so paused time doesn't count toward the 3-minute requirement
+  if(state.pausedAt && state.passageStart){
+    const pausedDuration = Date.now() - state.pausedAt;
+    state.passageStart += pausedDuration;
+    state.pausedAt = null;
+    saveState();
+  }
+  const startMs = state.passageStart || Date.now();
+  if(!state.passageStart){ state.passageStart=startMs; saveState(); }
+
+  passageTimerInterval = setInterval(()=>{
+    const elapsed   = Date.now() - state.passageStart;
+    const remaining = Math.max(0, PASSAGE_MIN_MS - elapsed);
+    const pct       = Math.min(100, (elapsed / PASSAGE_MIN_MS) * 100);
+
+    document.getElementById('passageTimerFill').style.width = pct+'%';
+    document.getElementById('passageTimerCount').textContent = remaining>0
+      ? formatTime(Math.floor(remaining/1000))+' remaining'
+      : 'Ready!';
+
+    if(remaining<=0 && !passageUnlocked){
+      clearInterval(passageTimerInterval);
+      passageTimerInterval=null;
+      passageUnlocked=true;
+      const btn = document.getElementById('startQuizBtn');
+      btn.disabled=false;
+      document.getElementById('passageFooterNote').textContent='✅ You\'ve spent enough time reading. Click the button when you\'re ready!';
+    }
+  },500);
 }
 
 // ═══════════════════════════════════════════════════
 //  GAME FLOW
 // ═══════════════════════════════════════════════════
-function startGame() {
+function startGame(){
   const name  = document.getElementById('nameSelect').value.trim();
   const idVal = document.getElementById('studentIdInput').value.trim();
   const errEl = document.getElementById('loginError');
-  errEl.textContent = '';
-  if (!name) { errEl.textContent = 'Please select your name first!'; return; }
-  const student = ROSTER.find(s => s.name === name);
-  if (!student) { errEl.textContent = 'Name not found. Ask your teacher for help.'; return; }
-  if (idVal !== student.id) {
-    errEl.textContent = 'Wrong student number — try again!';
-    document.getElementById('studentIdInput').value = '';
+  errEl.textContent='';
+  if(!name){ errEl.textContent='Please select your name first!'; return; }
+  const student = ROSTER.find(s=>s.name===name);
+  if(!student){ errEl.textContent='Name not found. Ask Mr. O for help.'; return; }
+  if(idVal!==student.id){
+    errEl.textContent='Wrong student number — try again!';
+    document.getElementById('studentIdInput').value='';
     document.getElementById('studentIdInput').focus();
     return;
   }
+
+  shuffledQs = buildShuffledQuestions();
+  passageUnlocked = false;
+  tabSwitches = 0; timePerQuestion = []; allWrongQuestions = []; qStartTime = null;
+  instrUnlocked = false;
+
+  // Check if this student has a saved instrStart (refreshed mid-instructions)
+  const savedRaw = localStorage.getItem(SAVE_KEY);
+  let savedInstrStart = null;
+  let savedInstrPausedAt = null;
+  if(savedRaw){
+    try{
+      const saved = JSON.parse(savedRaw);
+      if(saved.playerName === name && !saved.passageStart){
+        savedInstrStart   = saved.instrStart   || null;
+        savedInstrPausedAt = saved.instrPausedAt || null;
+      }
+    }catch(e){}
+  }
+
   state = freshState(name);
+  if(savedInstrStart){ state.instrStart = savedInstrStart; }
+  if(savedInstrPausedAt){ state.instrPausedAt = savedInstrPausedAt; }
+
   saveState();
+  startGlobalTimer();
+  showScreen('instructions');
+  startInstructionsTimer();
+}
+
+function goToPassage(){
+  stopReading();
   showScreen('passage');
+  startPassageTimer();
 }
 
-function resumeGame() {
-  try {
-    state = JSON.parse(localStorage.getItem(SAVE_KEY));
-    if (state.done) { showResults(); return; }
-    if (state.currentQIndex > 0) { startQuiz(); }
-    else { showScreen('passage'); }
-  } catch(e) { alert('Could not resume. Starting fresh.'); }
+function resumeGame(){
+  try{
+    state=JSON.parse(localStorage.getItem(SAVE_KEY));
+    shuffledQs=buildShuffledQuestions();
+    instrUnlocked=false;
+    tabSwitches=0; timePerQuestion=[]; allWrongQuestions=[]; qStartTime=null;
+    // ✅ Recalculate sessionStart so global timer continues from saved elapsedSeconds
+    if(state.elapsedSeconds){ state.sessionStart = Date.now() - state.elapsedSeconds*1000; }
+    startGlobalTimer();
+    // Check if passage timer was truly completed before allowing skip
+    const passageElapsed = state.passageStart ? (Date.now() - state.passageStart) : 0;
+    const passageDone = passageElapsed >= PASSAGE_MIN_MS;
+    passageUnlocked = passageDone;
+    if(state.currentQIndex>0||state.answers.length>0){
+      updateScoreDisplays(); renderQuestion(); showScreen('quiz');
+      // Restore read lock timer if they navigated away mid-lock
+      if(state.readLockPausedAt && state.readLockSecsLeft > 0){
+        const elapsed = Math.floor((Date.now() - state.readLockPausedAt) / 1000);
+        const secsLeft = Math.max(0, state.readLockSecsLeft - elapsed);
+        if(secsLeft > 0){
+          readSecsRemaining = secsLeft;
+          isReadLocked = true;
+          document.getElementById('readCountdownEl').classList.remove('hidden');
+          document.getElementById('readCountdownNum').textContent = secsLeft;
+          document.querySelectorAll('.choice-btn').forEach(b=>b.classList.add('locked'));
+          readTicker = setInterval(()=>{
+            readSecsRemaining--;
+            const el = document.getElementById('readCountdownNum');
+            if(el) el.textContent = readSecsRemaining;
+            if(readSecsRemaining <= 0){
+              clearInterval(readTicker); readTicker=null;
+              document.getElementById('readCountdownEl').classList.add('hidden');
+              isReadLocked = false;
+              document.querySelectorAll('.choice-btn').forEach(b=>b.classList.remove('locked'));
+            }
+          }, 1000);
+        } else {
+          isReadLocked = false;
+          document.getElementById('readCountdownEl').classList.add('hidden');
+          document.querySelectorAll('.choice-btn').forEach(b=>b.classList.remove('locked'));
+        }
+        state.readLockPausedAt = null; state.readLockSecsLeft = null;
+      }
+      // Restore next-question countdown if they navigated away mid-countdown
+      if(state.nextCDPausedAt && state.nextCDSecsLeft > 0){
+        const elapsed = Math.floor((Date.now() - state.nextCDPausedAt) / 1000);
+        const secsLeft = Math.max(0, state.nextCDSecsLeft - elapsed);
+        const countdownEl = document.getElementById('countdownEl');
+        const countdownNum = document.getElementById('countdownNum');
+        const nextBtn = document.getElementById('nextBtn');
+        if(secsLeft > 0){
+          countdownEl.classList.remove('hidden'); nextBtn.classList.add('hidden');
+          countdownNum.textContent = secsLeft;
+          nextCountdownTicker = setInterval(()=>{
+            const s = parseInt(countdownNum.textContent) - 1;
+            countdownNum.textContent = s;
+            if(s <= 0){
+              clearInterval(nextCountdownTicker); nextCountdownTicker=null;
+              countdownEl.classList.add('hidden');
+              const isLast = state.currentQIndex >= QUESTIONS_MASTER.length - 1;
+              nextBtn.textContent = isLast ? 'See My Results! 🎉' : 'Next Question →';
+              nextBtn.classList.remove('hidden');
+            }
+          }, 1000);
+        } else {
+          countdownEl.classList.add('hidden');
+          const isLast = state.currentQIndex >= QUESTIONS_MASTER.length - 1;
+          nextBtn.textContent = isLast ? 'See My Results! 🎉' : 'Next Question →';
+          nextBtn.classList.remove('hidden');
+        }
+        state.nextCDPausedAt = null; state.nextCDSecsLeft = null;
+      }
+    } else {
+      showScreen('passage');
+      if(passageDone){
+        document.getElementById('startQuizBtn').disabled=false;
+        document.getElementById('passageFooterNote').textContent='✅ Questions are unlocked. Click when ready!';
+        // Show passage timer bar as fully complete
+        document.getElementById('passageTimerFill').style.width='100%';
+        document.getElementById('passageTimerCount').textContent='Ready!';
+      } else {
+        // Timer not done — resume passage and keep counting down from where they left off
+        document.getElementById('startQuizBtn').disabled=true;
+        document.getElementById('passageFooterNote').textContent='⏳ Keep reading — questions unlock after 3 minutes on this page.';
+        startPassageTimer();
+      }
+    }
+  }catch(e){ alert('Could not resume. Starting fresh.'); }
 }
 
-function clearResume() {
+function clearResume(){
   localStorage.removeItem(SAVE_KEY);
   document.getElementById('resumeSection').classList.add('hidden');
 }
 
-function saveAndExit() {
+function saveAndExit(){
+  stopGlobalTimer();
+  clearInterval(passageTimerInterval); passageTimerInterval=null;
+  if(readTicker){ clearInterval(readTicker); readTicker=null; isReadLocked=false; }
+  if(nextCountdownTicker){ clearInterval(nextCountdownTicker); nextCountdownTicker=null; }
+  // ✅ Also stop instructions timer if pausing from there
+  if(instrTimerInterval){ clearInterval(instrTimerInterval); instrTimerInterval=null; }
+  stopReading();
+  // Record pause timestamp so paused time doesn't count toward passage timer
+  if(state.passageStart && !passageUnlocked){ state.pausedAt = Date.now(); }
   saveState();
   submitScorePartial();
-  document.getElementById('nameSelect').value = state.playerName;
-  document.getElementById('idSection').classList.remove('hidden');
+  document.getElementById('nameSelect').value=state.playerName;
+  document.getElementById('idSection').classList.add('hidden');
   document.getElementById('resumeSection').classList.remove('hidden');
-  document.getElementById('resumeInfo').textContent =
-    `"${state.playerName}" — Score: ${state.score} pts | Question ${state.currentQIndex + 1} of ${QUESTIONS.length}`;
+  document.getElementById('resumeInfo').textContent=`"${state.playerName}" — Score: ${state.score} pts | Question ${state.currentQIndex+1} of ${QUESTIONS_MASTER.length}`;
   showScreen('entry');
 }
 
-function saveState() { localStorage.setItem(SAVE_KEY, JSON.stringify(state)); }
+function saveState(){ localStorage.setItem(SAVE_KEY,JSON.stringify(state)); }
 
-// ═══════════════════════════════════════════════════
-//  READ ALOUD — Web Speech API, per paragraph
-// ═══════════════════════════════════════════════════
-const PARA_TEXT = [
-  "Maya had always dreamed of exploring the Amazon rainforest. When her father, a scientist, invited her on his research trip to Brazil, she could hardly contain her excitement. She packed her notebook, her compass, and her favorite pair of binoculars.",
-  "On their first morning in the jungle, Maya woke before sunrise. The air was thick and humid, heavy with the smell of wet leaves and earth. Strange bird calls echoed through the trees as thin rays of sunlight began to filter through the thick canopy above.",
-  "As she followed a narrow trail, Maya noticed how diverse the rainforest was. In just a few steps, she counted three types of colorful frogs, two kinds of flowering vines, and a spider monkey watching her from high in the branches. She scribbled notes as fast as she could.",
-  "Then it happened. Maya turned around and realized she could no longer see the research camp. Her heart began to race, but she remembered what her father had taught her: stay calm, observe your surroundings, and trust your training. She looked for the sun to find her direction and listened for the sound of the nearby river.",
-  "After a tense twenty minutes, Maya heard voices and splashing water. She pushed through a wall of broad leaves and stepped into a clearing right next to the camp. Her father ran toward her, relieved. Maya grinned and held up her notebook — she had filled six whole pages with observations.",
-  "I wasn't lost, she told her father with a smile. I was just doing extra research."
-];
+function backToPassage(){
+  stopReading();
+  if(readTicker){
+    clearInterval(readTicker); readTicker=null;
+    // Save whether lock was active so returnToQuiz can resume it
+    window._readLockWasActive = isReadLocked;
+    window._readSecsRemaining = readSecsRemaining;
+    isReadLocked=false;
+  } else {
+    window._readLockWasActive = false;
+  }
+  if(nextCountdownTicker){
+    clearInterval(nextCountdownTicker); nextCountdownTicker=null;
+    window._nextSecsRemaining = parseInt(document.getElementById('countdownNum')?.textContent||'0');
+    window._nextCountdownWasActive = true;
+  } else {
+    window._nextCountdownWasActive = false;
+    window._nextSecsRemaining = 0;
+  }
+  showScreen('passage');
+  if(!passageUnlocked) startPassageTimer();
+  // Show "Back to Quiz" button since we came from quiz
+  const btn = document.getElementById('backToQuizBtn');
+  if(btn) btn.classList.remove('hidden');
+  // Hide the "Start the Questions" footer button to avoid confusion
+  const startBtn = document.getElementById('startQuizBtn');
+  if(startBtn) startBtn.classList.add('hidden');
+}
 
-let activeParaIndex = null;
+function returnToQuiz(){
+  stopReading();
+  // Hide the back button and restore startQuizBtn for future visits
+  const btn = document.getElementById('backToQuizBtn');
+  if(btn) btn.classList.add('hidden');
+  const startBtn = document.getElementById('startQuizBtn');
+  if(startBtn) startBtn.classList.remove('hidden');
+  showScreen('quiz');
 
-function readParagraph(idx) {
-  // If this paragraph is already playing, stop it
-  if (activeParaIndex === idx) {
-    stopReading();
-    return;
+  // Resume next-question countdown if it was still running when they left
+  if(window._nextCountdownWasActive && window._nextSecsRemaining > 0){
+    const countdownEl = document.getElementById('countdownEl');
+    const countdownNum = document.getElementById('countdownNum');
+    const nextBtn = document.getElementById('nextBtn');
+    countdownEl.classList.remove('hidden');
+    nextBtn.classList.add('hidden');
+    let secs = window._nextSecsRemaining;
+    countdownNum.textContent = secs;
+    nextCountdownTicker = setInterval(()=>{
+      secs--; countdownNum.textContent = secs;
+      if(secs <= 0){
+        clearInterval(nextCountdownTicker); nextCountdownTicker=null;
+        countdownEl.classList.add('hidden');
+        const isLast = state.currentQIndex >= QUESTIONS_MASTER.length - 1;
+        nextBtn.textContent = isLast ? 'See My Results! 🎉' : 'Next Question →';
+        nextBtn.classList.remove('hidden');
+      }
+    }, 1000);
+    window._nextCountdownWasActive = false;
+  } else if(window._nextCountdownWasActive && window._nextSecsRemaining <= 0){
+    // Time already expired while re-reading — show Next button immediately
+    const countdownEl = document.getElementById('countdownEl');
+    const nextBtn = document.getElementById('nextBtn');
+    countdownEl.classList.add('hidden');
+    const isLast = state.currentQIndex >= QUESTIONS_MASTER.length - 1;
+    nextBtn.textContent = isLast ? 'See My Results! 🎉' : 'Next Question →';
+    nextBtn.classList.remove('hidden');
+    window._nextCountdownWasActive = false;
   }
 
-  // Stop any currently playing paragraph
-  stopReading();
-
-  if (!window.speechSynthesis) {
-    alert('Sorry — your browser does not support read aloud. Try using Chrome.');
-    return;
+  // Resume read lock countdown if it was still running when they left
+  if(window._readLockWasActive && window._readSecsRemaining > 0){
+    isReadLocked = true;
+    readSecsRemaining = window._readSecsRemaining;
+    let readSecs = readSecsRemaining;
+    document.getElementById('readCountdownEl').classList.remove('hidden');
+    document.getElementById('readCountdownNum').textContent = readSecs;
+    document.querySelectorAll('.choice-btn').forEach(b => b.classList.add('locked'));
+    readTicker = setInterval(()=>{
+      readSecsRemaining--; readSecs = readSecsRemaining;
+      const el = document.getElementById('readCountdownNum');
+      if(el) el.textContent = readSecsRemaining;
+      if(readSecsRemaining <= 0){
+        clearInterval(readTicker); readTicker=null;
+        document.getElementById('readCountdownEl').classList.add('hidden');
+        isReadLocked = false;
+        document.querySelectorAll('.choice-btn').forEach(b => b.classList.remove('locked'));
+      }
+    }, 1000);
+    window._readLockWasActive = false;
+  } else if(!isReadLocked){
+    // Lock already expired while they were re-reading — just unlock choices
+    document.getElementById('readCountdownEl').classList.add('hidden');
+    isReadLocked = false;
+    document.querySelectorAll('.choice-btn').forEach(b => b.classList.remove('locked'));
   }
-
-  activeParaIndex = idx;
-
-  // Highlight paragraph, mark button active
-  document.getElementById(`para-${idx}`).classList.add('reading');
-  const btn = document.getElementById(`readBtn-${idx}`);
-  btn.classList.add('active');
-  btn.textContent = 'Stop';
-
-  const utt = new SpeechSynthesisUtterance(PARA_TEXT[idx]);
-  utt.rate  = 0.88;   // slightly slower than default — comfortable for 4th grade
-  utt.pitch = 1.0;
-  utt.lang  = 'en-US';
-
-  utt.onend = () => clearReadState(idx);
-  utt.onerror = () => clearReadState(idx);
-
-  window.speechSynthesis.speak(utt);
 }
 
-function stopReading() {
-  window.speechSynthesis && window.speechSynthesis.cancel();
-  if (activeParaIndex !== null) clearReadState(activeParaIndex);
-}
-
-function clearReadState(idx) {
-  activeParaIndex = null;
-  const wrap = document.getElementById(`para-${idx}`);
-  const btn  = document.getElementById(`readBtn-${idx}`);
-  if (wrap) wrap.classList.remove('reading');
-  if (btn)  { btn.classList.remove('active'); btn.textContent = '🔊 Read Aloud'; }
-}
-
-// Stop speech if student navigates away from passage
-function startQuiz() {
+// ═══════════════════════════════════════════════════
+//  QUIZ
+// ═══════════════════════════════════════════════════
+function startQuiz(){
   stopReading();
-  if (!state.startTime) { state.startTime = Date.now(); saveState(); }
+  clearInterval(passageTimerInterval); passageTimerInterval=null;
+  // Ensure backToQuizBtn is hidden when quiz starts fresh from passage
+  const backBtn = document.getElementById('backToQuizBtn');
+  if(backBtn) backBtn.classList.add('hidden');
+  const startBtn = document.getElementById('startQuizBtn');
+  if(startBtn) startBtn.classList.remove('hidden');
   updateScoreDisplays();
   renderQuestion();
   showScreen('quiz');
 }
 
-function backToPassage() {
-  stopReading();
-  showScreen('passage');
-}
-
-// ── RENDER QUESTION ──
-function renderQuestion() {
-  const q    = QUESTIONS[state.currentQIndex];
-  const total = QUESTIONS.length;
+function renderQuestion(){
+  const q    = shuffledQs[state.currentQIndex];
+  const total= QUESTIONS_MASTER.length;
   const idx  = state.currentQIndex;
+  const pct  = (idx/total)*100;
 
-  // Progress
-  const pct = (idx / total) * 100;
-  document.getElementById('progressFill').style.width = pct + '%';
-  document.getElementById('progressNum').textContent = `${idx} / ${total}`;
-  document.getElementById('qCounter').textContent = `Question ${idx + 1} of ${total}`;
-
-  // Sentence — replace __ with styled blank
+  document.getElementById('progressFill').style.width=pct+'%';
+  document.getElementById('progressNum').textContent=`${idx} / ${total}`;
+  document.getElementById('qCounter').textContent=`Question ${idx+1} of ${total}`;
+  // Wrap question words in word-spans for read-aloud highlighting
+  const rawQ = q.s;
+  const parts = rawQ.split('__________');
+  function wrapWords(text){
+    return text.split(/\s+/).filter(w=>w).map(w=>`<span class="word-span">${w}</span>`).join(' ');
+  }
   document.getElementById('qSentence').innerHTML =
-    q.sentence.replace('__________', '<span class="blank">__________</span>');
+    wrapWords(parts[0]) + ' <span class="blank">__________</span> ' + (parts[1] ? wrapWords(parts[1]) : '');
 
-  // Choices
-  const cd = document.getElementById('choicesDiv');
-  cd.innerHTML = '';
-  q.choices.forEach((choice, i) => {
-    const btn = document.createElement('button');
-    btn.className = 'choice-btn';
-    btn.innerHTML = `<span class="choice-letter">${['A','B','C'][i]}.</span><span>${choice.substring(3)}</span>`;
-    btn.onclick = () => handleAnswer(i);
+  const cd=document.getElementById('choicesDiv');
+  cd.innerHTML='';
+  isReadLocked = true;
+  q.choices.forEach((choice,i)=>{
+    const btn=document.createElement('button');
+    btn.className='choice-btn locked';
+    btn.innerHTML=`<span class="choice-letter">${['A','B','C'][i]}.</span><span>${choice}</span>`;
+    btn.onclick=()=>handleAnswer(i);
     cd.appendChild(btn);
   });
 
-  // Reset UI
   document.getElementById('nextBtn').classList.add('hidden');
-  document.getElementById('nextBtn').textContent = 'Next Question →';
-  setMsg('Pick the word that best fills the blank! 🌴', 'neutral');
-  state.awaitingNext = false;
+  document.getElementById('confirmBtn').classList.add('hidden');
+  document.getElementById('countdownEl').classList.add('hidden');
+  // Reset read question button
+  stopReading();
+  const rqBtn = document.getElementById('readQuestionBtn');
+  if(rqBtn){ rqBtn.classList.remove('active','hidden'); rqBtn.textContent='🔊 Read Question'; }
+  document.getElementById('nextBtn').textContent='Next Question →';
+  document.getElementById('nextBtn').onclick=nextQuestion;
+  document.getElementById('readCountdownEl').classList.remove('hidden');
+  document.getElementById('readCountdownNum').textContent='15';
+  setMsg('📖 Read the sentence carefully before choosing your answer!','neutral');
+  state.awaitingNext=false;
+  state.selectedIdx=-1;
+
+  // 15-second reading lock
+  if(readTicker){ clearInterval(readTicker); readTicker=null; }
+  readSecsRemaining=15;
+  readTicker=setInterval(()=>{
+    readSecsRemaining--;
+    const el=document.getElementById('readCountdownNum');
+    if(el) el.textContent=readSecsRemaining;
+    if(readSecsRemaining<=0){
+      clearInterval(readTicker);
+      document.getElementById('readCountdownEl').classList.add('hidden');
+      isReadLocked = false;
+      document.querySelectorAll('.choice-btn').forEach(btn=>btn.classList.remove('locked'));
+      setMsg('Pick the word that best fills the blank! 🌴','neutral');
+      qStartTime=Date.now();
+    }
+  },1000);
 }
 
-// ── HANDLE ANSWER ──
-function handleAnswer(idx) {
-  if (state.awaitingNext) return;
-  const q  = QUESTIONS[state.currentQIndex];
-  const ok = idx === q.correct;
+function handleAnswer(idx){
+  if(isReadLocked) return;
+  if(state.awaitingNext) return;
+  if(!qStartTime) qStartTime=Date.now();
+  state.selectedIdx=idx;
+  document.querySelectorAll('.choice-btn').forEach((btn,i)=>{btn.classList.remove('selected');if(i===idx)btn.classList.add('selected');});
+  setMsg('Are you sure? Tap ✅ That\'s My Answer! to lock it in — or pick a different word.','neutral');
+  document.getElementById('confirmBtn').classList.remove('hidden');
+}
 
-  document.querySelectorAll('.choice-btn').forEach((btn, i) => {
-    btn.disabled = true;
-    if (i === q.correct) btn.classList.add('correct');
-    if (i === idx && !ok) btn.classList.add('wrong');
+function readQuestion(){
+  const btn = document.getElementById('readQuestionBtn');
+  if(btn && btn.classList.contains('active')){
+    stopReading();
+    return;
+  }
+  stopReading();
+  if(!window.speechSynthesis){ alert('Read aloud is only supported in Chrome.'); return; }
+
+  const qSentenceEl = document.getElementById('qSentence');
+  const choicesDiv  = document.getElementById('choicesDiv');
+  const choiceBtns  = document.querySelectorAll('.choice-btn');
+  const letters     = ['A','B','C'];
+
+  // Wrap each choice word in .word-span for highlighting
+  choiceBtns.forEach((b) => {
+    const textSpan = b.querySelector('span:last-child');
+    if(textSpan){
+      const words = textSpan.innerText.trim().split(/\s+/);
+      textSpan.innerHTML = words.map(w => `<span class="word-span">${w}</span>`).join(' ');
+    }
   });
 
-  state.answers.push({ correct: ok });
-  if (ok) {
-    state.score += PTS_CORRECT;
+  const sentenceSpans = Array.from(qSentenceEl.querySelectorAll('.word-span'));
+  const allChoiceSpans = Array.from(choicesDiv.querySelectorAll('.word-span'));
+  const wordSpans = [...sentenceSpans, ...allChoiceSpans];
+
+  // Build spoken sentence: replace blank (________) with the word "blank"
+  // We walk the child nodes of qSentenceEl to preserve word order
+  let sentenceSpoken = '';
+  qSentenceEl.childNodes.forEach(node => {
+    if(node.nodeType === Node.TEXT_NODE){
+      sentenceSpoken += node.textContent;
+    } else if(node.classList && node.classList.contains('blank')){
+      sentenceSpoken += ' blank ';
+    } else {
+      sentenceSpoken += node.innerText || node.textContent || '';
+    }
+  });
+  // Clean up extra spaces
+  sentenceSpoken = sentenceSpoken.replace(/\s+/g, ' ').trim();
+
+  // Build a spoken-word -> span-index map
+  // sentence words — BUT "blank" is spoken yet has no word-span (it's a .blank element)
+  // So we need to map each spoken sentence word to a span, skipping "blank"
+  const sentenceSpokenWords = sentenceSpoken.split(/\s+/);
+  const spokenMap = [];
+  let spanIdx = 0;
+  sentenceSpokenWords.forEach(w => {
+    if(w.toLowerCase() === 'blank'){
+      spokenMap.push(-1); // spoken but no span to highlight
+    } else {
+      spokenMap.push(spanIdx < sentenceSpans.length ? spanIdx : -1);
+      spanIdx++;
+    }
+  });
+
+  // transition words — no spans
+  const TRANSITION = 'The answer choices are.';
+  const transWordCount = TRANSITION.trim().split(/\s+/).length;
+  for(let t = 0; t < transWordCount; t++) spokenMap.push(-1);
+
+  // choices: letter label (no span) + choice words (each maps to a span)
+  let choiceSpanOffset = sentenceSpans.length;
+  choiceBtns.forEach((b) => {
+    spokenMap.push(-1); // letter label e.g. "A"
+    const spans = b.querySelectorAll('.word-span');
+    spans.forEach((_, k) => spokenMap.push(choiceSpanOffset + k));
+    choiceSpanOffset += spans.length;
+  });
+
+  // Build choice spoken text
+  let choiceText = '';
+  choiceBtns.forEach((b, i) => {
+    const words = Array.from(b.querySelectorAll('.word-span')).map(s => s.innerText).join(' ');
+    choiceText += letters[i] + '. ' + words + '. ';
+  });
+
+  const fullText = sentenceSpoken + ' ' + TRANSITION + ' ' + choiceText;
+
+  let currentSpanIdx = -1;
+  let boundaryFired = 0;
+  wordSpans.forEach(s => s.classList.remove('highlight'));
+  if(btn){ btn.classList.add('active'); btn.textContent = 'Stop'; }
+
+  const utt = new SpeechSynthesisUtterance(fullText);
+  utt.rate = 0.88; utt.pitch = 1.0; utt.lang = 'en-US';
+
+  utt.onboundary = e => {
+    if(e.name !== 'word') return;
+    if(currentSpanIdx >= 0) wordSpans[currentSpanIdx]?.classList.remove('highlight');
+    const mapped = spokenMap[boundaryFired] ?? -1;
+    boundaryFired++;
+    currentSpanIdx = mapped;
+    if(currentSpanIdx >= 0 && currentSpanIdx < wordSpans.length){
+      wordSpans[currentSpanIdx].classList.add('highlight');
+      wordSpans[currentSpanIdx].scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+    }
+  };
+
+  const cleanup = () => {
+    wordSpans.forEach(s => s.classList.remove('highlight'));
+    if(btn){ btn.classList.remove('active'); btn.textContent = 'Read Question'; }
+  };
+  utt.onend = cleanup;
+  utt.onerror = cleanup;
+
+  setTimeout(()=>{ window.speechSynthesis.speak(utt); }, 150);
+}
+
+function confirmAnswer(){
+  if(state.awaitingNext) return;
+  const idx=state.selectedIdx;
+  if(idx===-1) return;
+  stopReading();
+  const readBtn = document.getElementById('readQuestionBtn');
+  if(readBtn){ readBtn.classList.remove('active'); readBtn.textContent='🔊 Read Question'; }
+
+  const tElapsed=qStartTime?Math.floor((Date.now()-qStartTime)/1000):0;
+  timePerQuestion[state.currentQIndex]=tElapsed;
+  qStartTime=null;
+
+  const q=shuffledQs[state.currentQIndex];
+  const ok=idx===q.correct;
+
+  document.getElementById('confirmBtn').classList.add('hidden');
+  const rqBtnHide = document.getElementById('readQuestionBtn');
+  if(rqBtnHide) rqBtnHide.classList.add('hidden');
+  document.querySelectorAll('.choice-btn').forEach((btn,i)=>{
+    btn.disabled=true;btn.classList.remove('selected');
+    if(i===q.correct) btn.classList.add('correct');
+    if(i===idx&&!ok) btn.classList.add('wrong');
+  });
+
+  state.answers.push({correct:ok});
+  if(ok){
+    state.score=capScore(state.score+PTS_PER_Q);
     updateScoreDisplays();
-    setMsg(`✅ ${q.explain}`, 'correct');
+    setMsg(`✅ +10 pts — ${q.e}`,'correct');
   } else {
-    setMsg(`❌ ${q.explain}`, 'wrong');
+    const qNum=state.currentQIndex+1;
+    if(!allWrongQuestions.includes(qNum)) allWrongQuestions.push(qNum);
+    setMsg(`❌ ${q.e}`,'wrong');
   }
 
   saveState();
-  state.awaitingNext = true;
+  state.awaitingNext=true;
 
-  const isLast = state.currentQIndex >= QUESTIONS.length - 1;
-  const nextBtn = document.getElementById('nextBtn');
-  nextBtn.textContent = isLast ? 'See My Results! 🎉' : 'Next Question →';
-  nextBtn.onclick = isLast ? finishQuiz : nextQuestion;
-  nextBtn.classList.remove('hidden');
+  setTimeout(()=>{document.querySelectorAll('.choice-btn').forEach(btn=>btn.classList.remove('correct','wrong'));},4000);
+
+  const nextBtn=document.getElementById('nextBtn');
+  const countdownEl=document.getElementById('countdownEl');
+  const countdownNum=document.getElementById('countdownNum');
+  countdownEl.classList.remove('hidden');nextBtn.classList.add('hidden');
+  if(nextCountdownTicker){ clearInterval(nextCountdownTicker); nextCountdownTicker=null; }
+  let secs=10;countdownNum.textContent=secs;
+  nextCountdownTicker=setInterval(()=>{
+    secs--;countdownNum.textContent=secs;
+    if(secs<=0){
+      clearInterval(nextCountdownTicker); nextCountdownTicker=null;countdownEl.classList.add('hidden');
+      const isLast=state.currentQIndex>=QUESTIONS_MASTER.length-1;
+      nextBtn.textContent=isLast?'See My Results! 🎉':'Next Question →';
+      nextBtn.onclick=isLast?finishQuiz:nextQuestion;
+      nextBtn.classList.remove('hidden');
+    }
+  },1000);
 }
 
-function nextQuestion() {
+function nextQuestion(){
   state.currentQIndex++;
-  state.awaitingNext = false;
+  state.awaitingNext=false;
   renderQuestion();
 }
 
-function updateScoreDisplays() {
-  document.getElementById('scorePassage').textContent = state.score;
-  document.getElementById('scoreQuiz').textContent    = state.score;
+function updateScoreDisplays(){
+  document.getElementById('scorePassage').textContent=state.score;
+  document.getElementById('scoreQuiz').textContent=state.score;
 }
 
-function setMsg(text, type) {
-  const el = document.getElementById('qMsg');
-  el.className = 'q-msg msg-' + type;
-  el.textContent = text;
+function setMsg(text,type){
+  const el=document.getElementById('qMsg');
+  el.className='q-msg msg-'+type; el.textContent=text;
 }
 
-// ── FINISH ──
-function finishQuiz() {
-  state.done = true;
-  state.currentQIndex = QUESTIONS.length - 1;
-  state.elapsedSeconds = state.startTime
-    ? Math.floor((Date.now() - state.startTime) / 1000)
-    : null;
+// ═══════════════════════════════════════════════════
+//  FINISH
+// ═══════════════════════════════════════════════════
+function finishQuiz(){
+  state.done=true;
+  state.elapsedSeconds=elapsedSeconds;
+  stopGlobalTimer();
   saveState();
   submitScoreFinal();
+  lockStudent(state.playerName);
+  if(allWrongQuestions.length){
+    const list=document.getElementById('missedReviewList');
+    list.innerHTML='';
+    allWrongQuestions.sort((a,b)=>a-b).forEach(qNum=>{
+      const q=QUESTIONS_MASTER[qNum-1];
+      if(!q)return;
+      const item=document.createElement('div');item.className='missed-item';
+      item.innerHTML=`<div class="missed-item-wrong">❌ You missed Question ${qNum}:</div><div class="missed-item-q">${q.s.replace('__________','______')}</div><div class="missed-item-a">✅ Correct answer: ${q.correct}</div>`;
+      list.appendChild(item);
+    });
+    document.getElementById('missedReview').classList.remove('hidden');
+  }
   showResults();
 }
 
-function formatTime(seconds) {
-  if (seconds === null || seconds === undefined) return '—';
-  const m = Math.floor(seconds / 60);
-  const s = seconds % 60;
-  return m > 0 ? `${m}m ${s}s` : `${s}s`;
-}
+function showResults(){
+  const correct=state.answers.filter(a=>a.correct).length;
+  const total=QUESTIONS_MASTER.length;
+  const pct=Math.round((correct/total)*100);
+  let icon='🌴',title='Adventure Complete!';
+  if(pct===100){icon='👑';title='Perfect Explorer!';}
+  else if(pct>=80){icon='🦁';title='Jungle Master!';}
+  else if(pct>=60){icon='🦜';title='Brave Explorer!';}
+  else{icon='🌿';title='Keep Exploring!';}
 
-function showResults() {
-  const correct = state.answers.filter(a => a.correct).length;
-  const total   = QUESTIONS.length;
-  const pct     = Math.round((correct / total) * 100);
+  document.getElementById('resultsIcon').textContent=icon;
+  document.getElementById('resultsTitle').textContent=title;
+  document.getElementById('resultsScore').textContent=state.score;
 
-  let icon = '🌴', title = 'Adventure Complete!';
-  if (pct === 100)    { icon = '👑'; title = 'Perfect Explorer!'; }
-  else if (pct >= 80) { icon = '🦁'; title = 'Jungle Master!'; }
-  else if (pct >= 60) { icon = '🦜'; title = 'Brave Explorer!'; }
-  else                { icon = '🌿'; title = 'Keep Exploring!'; }
-
-  document.getElementById('resultsIcon').textContent  = icon;
-  document.getElementById('resultsTitle').textContent = title;
-  document.getElementById('resultsScore').textContent = state.score;
-
-  // Time display
-  const timeStr = formatTime(state.elapsedSeconds);
-
-  // Breakdown
-  const bd = document.getElementById('resultsBreakdown');
-  bd.innerHTML = '';
-  QUESTIONS.forEach((q, i) => {
-    const ans = state.answers[i];
-    if (!ans) return;
-    const row = document.createElement('div');
-    row.className = 'breakdown-row ' + (ans.correct ? 'correct-row' : 'wrong-row');
-    const word = q.choices[q.correct].substring(3);
-    row.innerHTML = `<span>${ans.correct ? '✅' : '❌'} Q${i+1}</span><span style="font-size:.8rem;color:var(--muted);flex:1;padding:0 10px;">${word}</span><span>${ans.correct ? '+10' : '0'} pts</span>`;
+  const bd=document.getElementById('resultsBreakdown');
+  bd.innerHTML='';
+  state.answers.forEach((ans,i)=>{
+    const q=shuffledQs[i];
+    if(!q) return;
+    const row=document.createElement('div');
+    row.className='breakdown-row '+(ans.correct?'correct-row':'wrong-row');
+    row.innerHTML=`<span>${ans.correct?'✅':'❌'} Q${i+1}</span><span style="font-size:.78rem;color:var(--muted);flex:1;padding:0 8px;">${q.correct}</span><span>${ans.correct?'+10':'0'} pts</span>`;
     bd.appendChild(row);
   });
-
-  // Summary row
-  const sum = document.createElement('div');
-  sum.className = 'breakdown-row';
-  sum.style.marginTop = '6px';
-  sum.innerHTML = `<span style="color:var(--yellow)">Total</span><span style="flex:1;padding:0 10px;color:var(--muted);font-size:.8rem;">${correct}/${total} correct (${pct}%) &nbsp;·&nbsp; ⏱ ${timeStr}</span><span style="color:var(--accent)">⭐ ${state.score} pts</span>`;
+  const sum=document.createElement('div');
+  sum.className='breakdown-row';
+  sum.style.marginTop='6px';
+  sum.innerHTML=`<span style="color:var(--yellow)">Total</span><span style="flex:1;padding:0 8px;color:var(--muted);font-size:.78rem;">${correct}/${total} correct (${pct}%) · ⏱ ${formatTime(state.elapsedSeconds)}</span><span style="color:var(--accent)">⭐ ${state.score} pts</span>`;
   bd.appendChild(sum);
 
-  // Progress bar to 100%
-  document.getElementById('progressFill').style.width = '100%';
-  document.getElementById('progressNum').textContent = `${total} / ${total}`;
-
+  document.getElementById('progressFill').style.width='100%';
+  document.getElementById('progressNum').textContent=`${total} / ${total}`;
   showScreen('results');
 }
 
 // ═══════════════════════════════════════════════════
-//  GOOGLE SHEETS LEADERBOARD
+//  READ ALOUD — word-by-word highlight
 // ═══════════════════════════════════════════════════
-function getLocalLB() { try { return JSON.parse(localStorage.getItem(LB_KEY)) || []; } catch(e) { return []; } }
-function saveLocalLB(lb) { localStorage.setItem(LB_KEY, JSON.stringify(lb)); }
+const PARA_TEXT=[
+  "Maya had always dreamed of exploring the Amazon rainforest. When her father, a scientist, invited her on his research trip to Brazil, she could hardly contain her excitement. She packed her notebook, her compass, and her favorite pair of binoculars. She had been preparing for a trip like this her entire life.",
+  "On their first morning in the jungle, Maya woke before sunrise. The air was thick and humid, heavy with the smell of wet leaves and earth. Strange bird calls echoed through the trees as thin rays of sunlight began to filter through the thick canopy above. She stood very still and just listened, amazed at how alive everything sounded.",
+  "As she followed a narrow trail, Maya noticed how diverse the rainforest was. In just a few steps, she counted three types of colorful frogs, two kinds of flowering vines, and a spider monkey watching her from high in the branches. She scribbled notes as fast as she could. Her father had taught her that careful observation was the most important skill a scientist could have.",
+  "The deeper they walked into the jungle, the more dense the vegetation became. Enormous leaves — some as big as a dining table — blocked much of the remaining light. Roots twisted up from the ground like giant fingers, making each step treacherous. Maya had to watch every footfall carefully to avoid tripping.",
+  "Then it happened. Maya turned around and realized she could no longer see the research camp. Her heart began to race, but she remembered what her father had taught her: stay calm, observe your surroundings, and trust your training. She took three slow, deep breaths. Panicking, she knew, would only make things worse.",
+  "Maya looked for the sun to find her direction and listened for the sound of the nearby river. Her compass told her she had been walking southeast, so the camp had to be northwest. She turned herself around and began walking slowly but deliberately, checking her compass every few minutes. Each step was calculated and careful.",
+  "Along the way, she noticed a peculiar orange mushroom growing at the base of a tree. She stopped to sketch it in her notebook, adding the exact location and time. Even lost, she was still doing science. Her father had always said that a true researcher never stops being curious, no matter the circumstances.",
+  "After a tense twenty minutes, Maya heard voices and splashing water. She pushed through a wall of broad leaves and stepped into a clearing right next to the camp. Her father ran toward her, relieved. Maya grinned and held up her notebook — she had filled six whole pages with observations.",
+  "That evening, sitting by the campfire, Maya's father reviewed her notes with wide eyes. Her sketches were detailed and accurate. Her descriptions were clear and organized. He told her that her mushroom sketch might actually be a species that had never been documented before. Maya felt a rush of pride unlike anything she had ever experienced.",
+  "I wasn't lost, she told her father with a smile. I was just doing extra research. Her father laughed and pulled her close. Maya looked out at the dark jungle, listening to the sounds of thousands of creatures going about their lives. She already knew she would be back — and next time, she would be even more prepared."
+];
 
-function mergeEntry(lb, entry) {
-  const i = lb.findIndex(e => e.name === entry.name);
-  if (i >= 0) {
-    // Update if better score, or same score with faster time
-    const existing = lb[i];
-    const betterScore = entry.score > existing.score;
-    const sameScoreFaster = entry.score === existing.score &&
-      entry.elapsedSeconds !== null &&
-      (existing.elapsedSeconds === null || entry.elapsedSeconds < existing.elapsedSeconds);
-    if (betterScore || sameScoreFaster) lb[i] = entry;
-  } else {
-    lb.push(entry);
+const INSTRUCTIONS_TEXT = "You will read a story called Lost in the Amazon. Read the entire passage from top to bottom before clicking Start the Questions. A 3-minute timer will run — the questions won't unlock until time is up. Each paragraph has a Read Aloud button underneath it. Tap it to have that paragraph read to you out loud, with each word highlighted as it's spoken. Tap again to stop. You can go back and re-read the passage at any time during the quiz by tapping the Re-read button at the top of the question screen. Pay close attention to the bold words in the story — they are important vocabulary words that will appear in the fill-in-the-blank questions. For each question, pick your answer, then tap That's My Answer to lock it in. You can change your mind before tapping that button. After each answer, wait for the 10-second review timer before moving on — use that time to read the explanation carefully.";
+
+function getInstrSpans(){
+  const spans=[];
+  for(let i=0;i<6;i++){
+    const el=document.getElementById(`instr-text-${i}`);
+    if(el) el.querySelectorAll('.word-span').forEach(s=>spans.push(s));
   }
-  // Sort: score descending, then time ascending (faster = better on tie)
-  lb.sort((a, b) => {
-    if (b.score !== a.score) return b.score - a.score;
-    const tA = a.elapsedSeconds ?? Infinity;
-    const tB = b.elapsedSeconds ?? Infinity;
-    return tA - tB;
+  return spans;
+}
+
+function readInstructions(){
+  const btn=document.getElementById('readInstructionsBtn');
+  if(btn.classList.contains('active')){
+    window.speechSynthesis.cancel();
+    getInstrSpans().forEach(s=>s.classList.remove('highlight'));
+    btn.classList.remove('active');
+    btn.textContent='🔊 Read Aloud';
+    return;
+  }
+  if(activeParaIndex!==null) clearReadState(activeParaIndex);
+  window.speechSynthesis.cancel();
+  if(!window.speechSynthesis){ alert('Read aloud is only supported in Chrome.'); return; }
+  btn.classList.add('active'); btn.textContent='⏹ Stop';
+  setTimeout(()=>{
+    const allSpans=getInstrSpans();
+    // ✅ FIX: use a simple incrementing counter on each word boundary event.
+    // The charIndex-to-word-count calculation drifts because the speech engine
+    // tokenizes contractions, emoji, and punctuation differently than the HTML spans.
+    // Incrementing hlIdx on every 'word' boundary event matches spans 1-to-1.
+    let hlIdx=-1;
+    const utt=new SpeechSynthesisUtterance(INSTRUCTIONS_TEXT);
+    utt.rate=0.88; utt.pitch=1.0; utt.lang='en-US';
+    utt.onboundary=(e)=>{
+      if(e.name!=='word') return;
+      if(hlIdx>=0&&allSpans[hlIdx]) allSpans[hlIdx].classList.remove('highlight');
+      hlIdx++;
+      if(hlIdx<allSpans.length){
+        allSpans[hlIdx].classList.add('highlight');
+        allSpans[hlIdx].scrollIntoView({block:'nearest',behavior:'smooth'});
+      }
+    };
+    const cleanup=()=>{ allSpans.forEach(s=>s.classList.remove('highlight')); btn.classList.remove('active'); btn.textContent='🔊 Read Aloud'; };
+    utt.onend=cleanup;
+    utt.onerror=cleanup;
+    window.speechSynthesis.speak(utt);
+  },150);
+}
+
+function readParagraph(idx){
+  if(activeParaIndex===idx){ stopReading(); return; }
+  stopReading();
+    if(!window.speechSynthesis){ alert('Read aloud is only supported in Chrome.'); return; }
+
+  setTimeout(()=>{
+    activeParaIndex=idx;
+    const paraEl=document.getElementById(`para-text-${idx}`);
+    currentWordSpans=paraEl?Array.from(paraEl.querySelectorAll('.word-span')):[];
+    currentHighlightIdx=-1;
+    currentWordSpans.forEach(s=>s.classList.remove('highlight'));
+
+    document.getElementById(`para-${idx}`).classList.add('reading');
+    const btn=document.getElementById(`readBtn-${idx}`);
+    btn.classList.add('active'); btn.textContent='⏹ Stop';
+
+    const paraPlainText = document.getElementById(`para-text-${idx}`)?.innerText || PARA_TEXT[idx];
+    const utt=new SpeechSynthesisUtterance(paraPlainText);
+    utt.rate=0.88; utt.pitch=1.0; utt.lang='en-US';
+
+    // ✅ FIX: increment on every word boundary — no charIndex math needed
+    utt.onboundary=(e)=>{
+      if(e.name!=='word') return;
+      if(currentHighlightIdx>=0&&currentWordSpans[currentHighlightIdx]){
+        currentWordSpans[currentHighlightIdx].classList.remove('highlight');
+      }
+      currentHighlightIdx++;
+      if(currentHighlightIdx<currentWordSpans.length){
+        currentWordSpans[currentHighlightIdx].classList.add('highlight');
+        currentWordSpans[currentHighlightIdx].scrollIntoView({block:'nearest',behavior:'smooth'});
+      }
+    };
+
+    utt.onend=()=>clearReadState(idx);
+    utt.onerror=()=>clearReadState(idx);
+    window.speechSynthesis.speak(utt);
+  }, 150);
+}
+
+function stopReading(){
+  if(!window.speechSynthesis) return;
+  window.speechSynthesis.cancel();
+  setTimeout(()=>{ if(window.speechSynthesis.speaking) window.speechSynthesis.cancel(); }, 100);
+  if(activeParaIndex!==null) clearReadState(activeParaIndex);
+  const instrBtn=document.getElementById('readInstructionsBtn');
+  if(instrBtn&&instrBtn.classList.contains('active')){
+    getInstrSpans().forEach(s=>s.classList.remove('highlight'));
+    instrBtn.classList.remove('active');
+    instrBtn.textContent='🔊 Read Aloud';
+  }
+}
+
+function clearReadState(idx){
+  currentWordSpans.forEach(s=>s.classList.remove('highlight'));
+  currentWordSpans=[];
+  currentHighlightIdx=-1;
+  activeParaIndex=null;
+  const wrap=document.getElementById(`para-${idx}`);
+  const btn=document.getElementById(`readBtn-${idx}`);
+  if(wrap) wrap.classList.remove('reading');
+  if(btn){ btn.classList.remove('active'); btn.textContent='🔊 Read Aloud'; }
+}
+
+// ═══════════════════════════════════════════════════
+//  LEADERBOARD
+// ═══════════════════════════════════════════════════
+function getLocalLB(){ try{ return JSON.parse(localStorage.getItem(LB_KEY))||[]; }catch(e){ return []; } }
+function saveLocalLB(lb){ localStorage.setItem(LB_KEY,JSON.stringify(lb)); }
+
+function mergeEntry(lb,entry){
+  const i=lb.findIndex(e=>e.name===entry.name);
+  if(i>=0){
+    const ex=lb[i];
+    const better=entry.score>ex.score||
+      (entry.score===ex.score&&entry.elapsedSeconds!=null&&
+       (ex.elapsedSeconds==null||entry.elapsedSeconds<ex.elapsedSeconds));
+    if(better) lb[i]={...entry,sessions:(ex.sessions||1)+1};
+    else lb[i].sessions=(ex.sessions||1)+1;
+  } else {
+    lb.push({...entry,sessions:1});
+  }
+  lb.sort((a,b)=>{
+    if(b.score!==a.score) return b.score-a.score;
+    const tA=a.elapsedSeconds??Infinity, tB=b.elapsedSeconds??Infinity;
+    return tA-tB;
   });
   return lb;
 }
 
-async function submitScorePartial() {
-  const correct = state.answers.filter(a => a.correct).length;
-  const entry = {
-    name: state.playerName,
-    score: state.score,
-    correct,
-    total: QUESTIONS.length,
-    elapsedSeconds: state.elapsedSeconds ?? null
+async function submitScorePartial(){
+  const correct=state.answers.filter(a=>a.correct).length;
+  const entry={
+    name:state.playerName,sessionId:state.sessionId,
+    score:capScore(state.score),correct,total:QUESTIONS_MASTER.length,
+    elapsedSeconds:state.elapsedSeconds??null,
+    done:state.done||false,
+    tabSwitches,
+    wrongQuestions:allWrongQuestions.join(','),
+    timePerQuestion:timePerQuestion.join(',')
   };
-  saveLocalLB(mergeEntry(getLocalLB(), entry));
-  if (!SHEET_URL) return;
-  try {
-    await fetch(SHEET_URL, {
-      method: 'POST', mode: 'no-cors',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ action: 'submit', game: 'cloze', ...entry })
-    });
-  } catch(e) {}
+  saveLocalLB(mergeEntry(getLocalLB(),entry));
+  if(!SHEET_URL) return;
+  try{ await fetch(SHEET_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},body:JSON.stringify({action:'submit',game:'cloze',...entry})}); }catch(e){}
 }
 
-async function submitScoreFinal() {
+async function submitScoreFinal(){
   await submitScorePartial();
   localStorage.removeItem(SAVE_KEY);
 }
 
-async function fetchLB() {
-  if (!SHEET_URL) return getLocalLB();
-  try {
-    const res = await fetch(`${SHEET_URL}?action=leaderboard&game=cloze`, { cache: 'no-store' });
-    if (!res.ok) throw new Error();
-    const data = await res.json();
-    if (Array.isArray(data)) { saveLocalLB(data); return data; }
+async function fetchLB(){
+  if(!SHEET_URL) return getLocalLB();
+  try{
+    const res=await fetch(`${SHEET_URL}?action=leaderboard&game=cloze`,{cache:'no-store'});
+    if(!res.ok) throw new Error();
+    const data=await res.json();
+    if(Array.isArray(data)){ saveLocalLB(data); return data; }
     return getLocalLB();
-  } catch(e) { return getLocalLB(); }
+  }catch(e){ return getLocalLB(); }
 }
 
-async function clearSheet() {
-  if (!SHEET_URL) { saveLocalLB([]); return; }
-  try {
-    await fetch(SHEET_URL, {
-      method: 'POST', mode: 'no-cors',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ action: 'clear', game: 'cloze' })
-    });
-  } catch(e) {}
-  saveLocalLB([]);
-}
-
-async function showLeaderboard() {
-  prevScreen = currentScreen;
+async function showLeaderboard(){
+  prevScreen=currentScreen;
   showScreen('leaderboard');
-  const tbody = document.getElementById('lbBody');
-  tbody.innerHTML = '<tr><td colspan="4" style="text-align:center;color:var(--muted);padding:28px;font-weight:700;">⏳ Loading scores...</td></tr>';
-  const lb = await fetchLB();
-  const medals = ['🥇','🥈','🥉'];
-  tbody.innerHTML = '';
-  if (!lb.length) {
-    tbody.innerHTML = '<tr><td colspan="4" style="text-align:center;color:var(--muted);padding:28px;font-weight:700;">No scores yet — be the first explorer!</td></tr>';
+  const tbody=document.getElementById('lbBody');
+  tbody.innerHTML='<tr><td colspan="6" style="text-align:center;color:var(--muted);padding:28px;font-weight:700;">⏳ Loading scores...</td></tr>';
+  const lb=await fetchLB();
+  const medals=['🥇','🥈','🥉'];
+  tbody.innerHTML='';
+  if(!lb.length){
+    tbody.innerHTML='<tr><td colspan="6" style="text-align:center;color:var(--muted);padding:28px;font-weight:700;">No scores yet — be the first explorer!</td></tr>';
   } else {
-    lb.forEach((e, i) => {
-      const tr = document.createElement('tr');
-      const correctDisplay = e.correct !== undefined ? `${e.correct}/${e.total || QUESTIONS.length}` : '—';
-      const timeDisplay = formatTime(e.elapsedSeconds);
-      tr.innerHTML = `<td style="font-weight:800;font-size:1.1rem;">${medals[i]||(i+1)}</td><td style="font-weight:800;">${e.name}</td><td class="lb-score">⭐ ${e.score}</td><td style="color:var(--muted);font-weight:700;">✅ ${correctDisplay}</td><td style="color:var(--muted);font-weight:700;">⏱ ${timeDisplay}</td>`;
+    lb.forEach((e,i)=>{
+      const tr=document.createElement('tr');
+      const correctDisplay=e.correct!==undefined?`${e.correct}/${e.total||QUESTIONS_MASTER.length}`:'—';
+      tr.innerHTML=`<td style="font-weight:800;font-size:1.1rem;">${medals[i]||(i+1)}</td><td style="font-weight:800;">${e.name}</td><td class="lb-score">⭐ ${e.score}</td><td style="color:var(--muted);font-weight:700;">✅ ${correctDisplay}</td><td style="color:var(--teal);font-weight:700;">⏱ ${(e.elapsedSeconds!=null?formatTime(e.elapsedSeconds):'--')}</td><td style="color:var(--muted);font-weight:700;font-size:.78rem;">${e.sessions||1} run${(e.sessions||1)>1?'s':''}</td>`;
       tbody.appendChild(tr);
     });
   }
 }
 
-function promptClear() {
-  document.getElementById('pinInput').value = '';
-  document.getElementById('pinError').textContent = '';
+// ═══════════════════════════════════════════════════
+//  PIN
+// ═══════════════════════════════════════════════════
+function promptPin(mode){
+  pinMode=mode;
+  const titles={clear:'Teacher Access',unlock:'Unlock for Replay',startfresh:'Teacher Required'};
+  const bodies={clear:'Enter the teacher PIN to clear all scores.',unlock:'Enter the teacher PIN to allow this student to replay.',startfresh:'Starting fresh requires the teacher PIN.'};
+  document.getElementById('pinTitle').textContent=titles[mode]||'Teacher Access';
+  document.getElementById('pinBody').textContent=bodies[mode]||'Enter the teacher PIN.';
+  document.getElementById('pinInput').value='';
+  document.getElementById('pinInput').disabled = false;
+  pinAttempts = 0;
+  document.getElementById('pinError').textContent='';
   document.getElementById('pinOverlay').classList.add('show');
-  setTimeout(() => document.getElementById('pinInput').focus(), 120);
+  setTimeout(()=>document.getElementById('pinInput').focus(),120);
 }
-async function checkPin() {
-  if (document.getElementById('pinInput').value.trim() === TEACHER_PIN) {
+
+async function checkPin(){
+  const val=document.getElementById('pinInput').value.trim();
+  if(val===TEACHER_PIN){
     document.getElementById('pinOverlay').classList.remove('show');
-    await clearSheet();
-    showLeaderboard();
+    if(pinMode==='clear'){
+      saveLocalLB([]);
+      if(SHEET_URL){ try{ await fetch(SHEET_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},body:JSON.stringify({action:'clear',game:'cloze'})}); }catch(e){} }
+      showLeaderboard();
+    } else if(pinMode==='unlock'){
+      const name=document.getElementById('nameSelect').value;
+      unlockStudent(name);
+      document.getElementById('lockedBanner').classList.add('hidden');
+      document.getElementById('idSection').classList.remove('hidden');
+      document.getElementById('loginError').textContent='';
+      setTimeout(()=>document.getElementById('studentIdInput').focus(),50);
+    } else if(pinMode==='startfresh'){
+      clearResume();
+    }
   } else {
-    document.getElementById('pinError').textContent = 'Wrong PIN — try again.';
-    document.getElementById('pinInput').value = '';
+    pinAttempts++;
+    if(pinAttempts >= 3){
+      document.getElementById('pinError').textContent='⛔ Too many wrong attempts. Ask Mr. O to unlock.';
+      document.getElementById('pinInput').disabled = true;
+      document.getElementById('pinInput').value = '';
+      setTimeout(()=>{ closePin(); }, 3000);
+    } else {
+      document.getElementById('pinError').textContent='Wrong PIN — try again. (' + (3 - pinAttempts) + ' attempt(s) left)';
+      document.getElementById('pinInput').value='';
+    }
   }
 }
-function closePin() { document.getElementById('pinOverlay').classList.remove('show'); }
+function closePin(){ document.getElementById('pinOverlay').classList.remove('show'); }
 </script>
 </body>
 </html>
